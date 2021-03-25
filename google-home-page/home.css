@@ -1,0 +1,105 @@
+h1 {
+    font-size: 28;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 200px;
+}
+body {
+    font-size: 14px;
+    font-family: arial, sans-serif;
+}
+html, body {
+    min-width: 400px;
+}
+body, input, button {
+font-size: 14px;
+font-family: arial,sans-serif;
+color: #222;
+}
+
+button {
+border-radius:10%;
+}
+
+h1 {
+    color:red;
+    font-size: 28px;
+}
+.gb_h .gb_g {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle;
+}
+a.gb_g, span.gb_g {
+    color: rgba(0,0,0,0.87);
+    text-decoration: none;
+}
+.gb_9d {
+    font-family: arial,sans-serif;
+    line-height: normal;
+    padding-right: 15px;
+}
+.gb_h {
+    display: inline-block;
+    padding-left: 15px;
+}
+.gb_0d .gb_Xd {
+    float: right;
+    padding-left: 32px;
+}
+.gb_Xd {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 48px;
+    line-height: normal;
+    padding: 0 4px;
+    padding-left: 30px;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-box-pack: flex-end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.gb_Jd {
+    height: 48px;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-user-select: none;
+}
+a {
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+
+.gb_qa {
+    color: black;
+    min-width: 320px;
+    position: relative;
+    -webkit-transition: box-shadow 250ms;
+    transition: box-shadow 250ms;
+}
+.google_word {
+    padding: 10px 0px 20px 10px;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+}
+
+.lnXdpd {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    width: auto;
+}
