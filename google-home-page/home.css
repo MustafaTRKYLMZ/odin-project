@@ -10,6 +10,7 @@ body {
 }
 html, body {
     min-width: 400px;
+    margin-bottom: 0px;
 }
 body, input, button {
 font-size: 14px;
@@ -21,33 +22,20 @@ button {
 border-radius:10%;
 }
 
-h1 {
-    color:red;
-    font-size: 28px;
-}
-.gb_h .gb_g {
+.navbarDiv .navbarA {
     display: inline-block;
     line-height: 24px;
     vertical-align: middle;
 }
-a.gb_g, span.gb_g {
+a.navbarA, span.navbarA {
     color: rgba(0,0,0,0.87);
     text-decoration: none;
 }
-.gb_9d {
-    font-family: arial,sans-serif;
-    line-height: normal;
-    padding-right: 15px;
-}
-.gb_h {
+.navbarDiv {
     display: inline-block;
     padding-left: 15px;
 }
-.gb_0d .gb_Xd {
-    float: right;
-    padding-left: 32px;
-}
-.gb_Xd {
+.navbarMenu {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 48px;
@@ -60,7 +48,7 @@ a.gb_g, span.gb_g {
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
 }
-.gb_Jd {
+.navbar {
     height: 48px;
     vertical-align: middle;
     white-space: nowrap;
@@ -70,21 +58,16 @@ a.gb_g, span.gb_g {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    -webkit-user-select: none;
 }
 a {
     color: #1a0dab;
-    text-decoration: none;
+    text-decoration:none;
+    cursor: pointer;
+}
+a:hover {
+  text-decoration:underline;
 }
 
-
-.gb_qa {
-    color: black;
-    min-width: 320px;
-    position: relative;
-    -webkit-transition: box-shadow 250ms;
-    transition: box-shadow 250ms;
-}
 .google_word {
     padding: 10px 0px 20px 10px;
     display: flex;
@@ -93,13 +76,112 @@ a {
     align-items: center;
     width: 100%;
     height: 100%;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
-.lnXdpd {
+.google_wordImg {
     max-height: 100%;
     max-width: 100%;
     object-fit: contain;
     object-position: center bottom;
     width: auto;
+}
+.searchDiv {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: center;
+    align-items:initial;
+    justify-items: initial;
+    justify-content: center;
+    width: 1200px;
+    height: 100px;
+    border:rgb(3, 3, 3);
+}
+form {
+    object-fit: contain;
+    object-position: center bottom;
+    max-height: 100%;
+    max-width: 100%;
+    align-items: center;
+    border: none;
+    flex-direction: row;
+    display: flex;
+}
+input {
+    
+    display: flex;
+    width: 700px;
+    height: 50px;
+    border: 1px solid #202122;
+    border-radius: 100px 100px 100px 100px ;
+
+    box-shadow: 1px ;
+}
+input:hover {
+    box-shadow: 1px 1px 1px 1px ;
+}
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    padding: initial;
+   
+}
+.searchButton {
+    flex-direction: row;
+    
+
+}
+button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    display: initial;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #f8f9fa;
+    border: 1px solid #202122;
+}
+.offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+    margin-bottom:200px
+}
+p, a {
+    padding: 10px;
+    
+}
+ul a{
+    color: black;
+}
+.footerLast {
+    display: flex;
+    flex-direction: bottom;
+    justify-content: space-around;
+    align-items:center;
+    background-color:#f2f2f2;
+    width: 100%;
+    bottom: 0px;
+    margin-bottom: 0px;
+
+}
+
+.footerFirst {
+    color: rgb(22, 21, 21);
+    flex-direction: start;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    border-bottom-style: solid;
+    border-bottom: 1px solid black;
+}
+.footer {
+    background-color: #f2f2f2;
+    width: 100%;
 }
