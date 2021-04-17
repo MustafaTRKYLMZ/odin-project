@@ -1,0 +1,109 @@
+
+.game {
+    display: flex;
+    background-color: rgb(29, 183, 235);
+    justify-content: row;
+    flex-direction: row;
+    height: 500px;
+    width: 600px;
+}
+.gameResult {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    background-color: rgb(174, 199, 168);
+    justify-content: row;
+    align-items: row;
+    width: 1200;
+    height: 1000;
+}
+.buttons {
+    display: flex;
+    flex: 1;
+    background-color: rgb(174, 199, 168);
+    align-items: row;
+    flex-direction: column;
+    justify-content: row;
+}
+body {
+    background-color: rgb(223, 181, 66);
+    width: 1200;
+    height: 1000;
+    border:none;
+    border-radius: 20px;
+}
+button {
+    color:rgb(36, 14, 238);
+    margin: 10px;
+    padding:10px;
+    margin-top: 10px;
+    width: 200px;
+    height: 180px;
+}
+#rock {
+    background:url("./image/rock.jpg");
+    
+}
+#paper {
+    background:url("./image/paper.jpg");
+   
+}
+#scissors {
+    background:url("./image/scissors.jpg");
+   
+}
+
+#result{
+    display: flex;
+    flex:1;
+    background-color: rgb(199, 30, 30);
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.results {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    width: 200px;
+    height: 500px;
+    justify-content: column;
+    align-items: center;
+    align-content: center;
+}
+#yourChoose {
+    background-color: lightseagreen;
+}
+#computerChoose {
+     background-color: rgb(173, 32, 178);
+   
+}
+.chooses {
+    margin: 10px;
+    width: 100px;
+    height: 200px;
+    padding: 10px;
+}
+.winnerResult {
+ 
+    border-radius: 20px;
+    margin-left: 20px;
+    justify-content: center;
+}
+.winner {
+    background-color: rgb(226, 138, 38);
+    margin: 10px;
+    width: 100px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  button:hover {
+      border: mediumblue;
+  }
+  .finally {
+      margin:10px
+  }
+  /*
+transform: scale(1.1);
+  */
