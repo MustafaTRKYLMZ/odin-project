@@ -37,8 +37,29 @@ button {
     margin: 10px;
     padding:10px;
     margin-top: 10px;
+    border-radius: 100px;
+    border: rgb(199, 30, 30);
     width: 200px;
     height: 180px;
+}
+#reload {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 70px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    color:rgb(199, 30, 30);
+    margin-left: 530px;
+}
+button:hover {
+    border: rgb(14, 14, 221);
+    margin-left: 20px;
+}
+button:active {
+    border: rgb(14, 14, 221);
+    margin-left: 40px;
+    background-color: rgb(199, 30, 30);
 }
 #rock {
     background:url("./image/rock.jpg");
@@ -73,9 +94,11 @@ button {
 }
 #yourChoose {
     background-color: lightseagreen;
+    border-radius: 20px;
 }
 #computerChoose {
      background-color: rgb(173, 32, 178);
+     border-radius: 20px;
    
 }
 .chooses {
@@ -98,12 +121,11 @@ button {
     padding: 10px;
     border-radius: 20px;
   }
-  button:hover {
-      border: mediumblue;
-  }
+ 
   .finally {
       margin:10px
   }
+ 
   /*
 transform: scale(1.1);
   */
