@@ -1,0 +1,61 @@
+.main {
+    display: flex;
+    flex: 1;
+    flex-direction: center;
+    background-color: rgb(236, 236, 245);
+    width: 1200;
+    height: 1200;
+    border: blue;
+    border-radius: 20px;
+    margin:20px;
+}
+body {
+    background-color: rgb(255, 123, 0);
+    width: 1200;
+    height: 1200;
+}
+#header {
+    display: flex;
+    flex: 1;
+    flex-direction: center;
+    justify-content: center;
+    color:black;
+    font-size: 12px;
+    background-color: rgb(87, 158, 55);
+    height: 50px;
+    align-items: center;
+    border-radius: 20px;
+}
+#inputNumber {
+    margin:10px;
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+}
+#reload {
+    margin:10px 5px 0px 0px;
+    border-radius: 10px;
+    height:40px;
+    width: 100px;
+}
+.gridArea {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(233, 216, 216);
+    border-radius: 10px;
+}
+.inputArea {
+    display: flex;
+    width: 450px;
+}
+.grid-container {
+    display: grid;
+    height: 20px;
+    width: 20px;
+    grid-template-columns: 20px 20px auto 20px;
+    background-color: rgb(243, 235, 230);
+    border:black;
+    border-style:solid;
+    
+  }
