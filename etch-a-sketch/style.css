@@ -3,8 +3,7 @@
     flex: 1;
     flex-direction: center;
     background-color: rgb(236, 236, 245);
-    width: 1200;
-    height: 1200;
+    
     border: blue;
     border-radius: 20px;
     margin:20px;
@@ -21,10 +20,12 @@ body {
     justify-content: center;
     color:black;
     font-size: 12px;
-    background-color: rgb(87, 158, 55);
     height: 50px;
     align-items: center;
     border-radius: 20px;
+}
+label {
+    margin-left: 10px;
 }
 #inputNumber {
     margin:10px;
@@ -38,24 +39,42 @@ body {
     height:40px;
     width: 100px;
 }
-.gridArea {
-    display: grid;
-    width: 500px;
-    height: 500px;
-    background-color: rgb(233, 216, 216);
-    border-radius: 10px;
-}
-.inputArea {
-    display: flex;
-    width: 450px;
-}
-.grid-container {
-    display: grid;
-    height: 20px;
-    width: 20px;
-    grid-template-columns: 20px 20px auto 20px;
-    background-color: rgb(243, 235, 230);
-    border:black;
-    border-style:solid;
-    
+
+  html {
+    text-align: center;
+    font-family: Monaco;
+  }
+  
+  .right {
+    float: right;
+    margin-bottom: 20px;
+  }
+  
+  .left {
+    display: inline-block;
+  }
+  
+  .square {
+    background-color: white;
+    border: 1px solid black;
+  }
+  
+  .color {
+    background-color: rgb(18, 14, 243);
+    border: 1px solid rgb(240, 10, 10);
+  }
+  
+  .gridContainer {
+    margin-top: 25px;
+    margin-right: 40px;
+    display: inline-grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
+    border: 5px solid black;
+    border-radius: 5px;
+    height: 575px;
+    width: 575px;
+  }
+  .page {
+      margin:0px
   }
