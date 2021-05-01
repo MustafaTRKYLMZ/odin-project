@@ -1,0 +1,146 @@
+Header {
+    font-size:24px;
+    color:black;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;;
+    border-radius: 20px;
+}
+.container{
+    display: flex;
+    flex:2;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.header {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    display: flex;
+    flex: 4;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    height: 800px;
+    width: 800px;
+    background-color: rgb(243, 108, 18);
+}
+.calculator{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+}
+.result{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: white;
+    width: 450px;
+    height: 400px;
+    margin:20px;
+    border-radius: 20px;
+    height: 150px;
+    border: black;
+    border-style:solid;
+}
+.result div {
+    display: flex;
+    flex:1;
+    background-color: white;
+    height: 50px;
+    margin:5px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content:flex-end;
+}
+p{
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+.numberArea{
+    display: flex;
+    flex:1;
+    background-color:  #2196F3;
+    flex-direction: row;
+    margin:5px;
+    border-radius: 20px;
+    border: black;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px;
+   
+
+}
+  .grid-containerCal{
+    display: grid;
+    grid-row-end: initial;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    background-color: #181617;
+    padding: 10px;
+    margin:5px;
+    margin-left: 0px;
+    border-radius: 20px;
+  }
+  .grid-containerTop{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    padding: 10px;
+    margin:5px;
+    margin-right: 0px;
+    width: auto;
+    border-radius: 20px;
+  }
+  .grid-containerNumber{
+    display: grid;
+    grid-row-end: initial;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    background-color: #0b0c0c;
+    padding: 5px;
+    margin:5px;
+    margin-right: 0px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button{
+    background-color: rgba(15, 9, 31, 0.8);
+    border: 1px solid rgb(233, 11, 11);
+    text-align: center;
+    font-size: 30px;
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+    padding:30px;
+    color:white;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+  button:hover{
+      background-color: red;
+      transform:matrix3d();
+  }

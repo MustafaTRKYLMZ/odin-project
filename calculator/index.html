@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <Header><h1>Calculator</h1></Header>
+        </div>
+        <div class="calculator">
+            <div class="result">
+                <div><p>Result Area1</p> </div>
+                <div><p>Result Area2</p> </div>
+                <div id="firstResult" ><p>Result Area3</p> </div>
+            </div>
+            <div class="numberArea">
+                    <div class="grid-containerTop">
+                        <div class="grid-containerNumber">
+                            <div id="%">
+                                <button>%</button>
+                            </div>
+                            <div id="CC">
+                                <button>CC</button>
+                             </div>
+                            <div id="C">
+                                <button>C</button>
+                            </div>
+                        </div>
+                        <div class="grid-containerNumber">
+                            <div >
+                                <button id="7" onClick="handleClick()" value="7">7</button>
+                            </div>
+                            <div id="8">
+                                <button>8</button>
+                            </div>
+                            <div id="9">
+                                <button>9</button>
+                            </div>
+                            <div id="4">
+                                <button>4</button>
+                            </div>
+                            <div id="5">
+                                <button>5</button>
+                            </div>
+                            <div id="6">
+                                <button>6</button>
+                            </div>
+                            <div id="3">
+                                <button>3</button>
+                            </div>
+                            <div id="2">
+                                <button>2</button>
+                            </div>
+                            <div id="1">
+                                <button>1</button>
+                            </div>
+                            <div id="comma">
+                                <button>,</button>
+                            </div>
+                            <div id="zero">
+                                <button>0</button>
+                            </div>
+                            <div id="point">
+                                <button>.</button>
+                            </div>
+                        </div>
+                     
+                    </div><!--end of the grid-containerNumber 
+                    1- each button must have id, onclick, function value
+
+                    -->
+                        <div class="grid-containerCal">
+                            <div >
+                                <button id="plus" onclick="handleClickPlus()" value="+">+</button>
+                            </div>
+                            <div >
+                                <button id="multiply" onclick="handleClickMultiply()" value="*">*</button>
+                            </div>
+                            <div >
+                                <button id="comma" onclick="handleClickComma()" value="-">-</button>
+                            </div>
+                            <div >
+                                <button id="divide" onclick="handleClickDivide()" value="/">/</button>
+                            </div>
+                            <div >
+                                <button id="equal" onclick="handleClickEqual()" value="=">=</button>
+                            </div>
+                         </div>
+            </div> 
+        </div>
+    </div>
+    <script src="myScript.js">
+
+    </script>
+</body>
+</html>
