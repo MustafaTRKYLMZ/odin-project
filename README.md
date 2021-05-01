@@ -1,6 +1,6 @@
 # odin-project
 This repository includes Odin Project files
-# Fundamental Projects: 
+# Foundation Projects: 
 I used html, css and javascript(basic level) when I am building these projects.
 ## Google Home Page project 
 [Live Preview](https://mustafatrkylmz.github.io/odin-project/google-home-page/)
