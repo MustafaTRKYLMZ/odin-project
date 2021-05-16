@@ -1,58 +1,113 @@
-//sum function is working effectively.
-//I tried ony sum function and equal function. 
+// All process (+ - * / %) is working effectively. 
 //You can contionue other functions
 
-const buttonClick = document.getElementById("7").value;
-const buttonPlus = document.getElementById("plus").value;
+//ASSİGNMENTS
+//1- you should Result Area2 ad Result Area1
+// 2- you should built CC process
+// 3- sumAll is continue out of the result Area3. You should fix them. 
+
 const first = document.getElementById("firstResult");
 const equal = document.getElementById("equal").value;
 let sumAll ="";
-let sumCount=0;
-console.log("button value",buttonClick.value)
-console.log(first)
-const handleClick=()=>{
-   console.log("Hi")
-   sumAll += buttonClick;
-   sumCount +=parseInt(buttonClick);
-   document.getElementById("firstResult").innerHTML = sumAll;
+let sumCount="";
+
+const handleClick=(id)=>{
+   console.log("SumCount",sumCount)
+switch(id.value) {
+   case "clear":
+     document.getElementById("firstResult").innerHTML = "";
+     sumAll=""
+     sumCount=""
+     break;
+   case "plus":
+     sumAll += "+";
+     sumCount +="+";
+     document.getElementById("firstResult").innerHTML = sumAll;
   
-   console.log(buttonClick.value)
+     break;
+   case "minus":
+      sumAll += "-";
+      sumCount +="-";
+      document.getElementById("firstResult").innerHTML = sumAll;
+      break;
+   case "multiply":
+      sumAll += "*";
+     sumCount +="*";
+     document.getElementById("firstResult").innerHTML = sumAll;
+      break;
+   case 'divide':
+      sumAll += "/";
+     sumCount +="/";
+     document.getElementById("firstResult").innerHTML = sumAll;
+      break;
+      case 'percent':
+         sumAll += "%";
+        sumCount +="%";
+        document.getElementById("firstResult").innerHTML = sumAll;
+         break;
+   case "equal":
+      let result=0;
+      let newArray=[];
+      if(sumCount.includes("+")){
+         newArray = sumCount.split("+")
+         result = process(newArray,"+");
+      } else if(sumCount.includes("-")){
+         newArray = sumCount.split("-");
+         result = process(newArray,"-");
+
+      } else if(sumCount.includes("*")){
+         newArray = sumCount.split("*");
+         result = process(newArray,"*");
+
+      } else if(sumCount.includes("/")){
+         newArray = sumCount.split("/");
+         result = process(newArray,"/");
+
+      } else if(sumCount.includes("%")){
+         newArray = sumCount.split("%");
+         result = process(newArray,"%");
+
+      }
+    
+    console.log("Result",result)
+    sumAll +="="+result;
+    
+   document.getElementById("firstResult").innerHTML = sumAll;
+   sumCount=result;
+   console.log("sumCount",sumCount)
+   console.log("sumAll",sumAll)
+      break;
+   
+
+  
+   default:
+     // code block
+    sumAll += id.value;
+    sumCount +=id.value;//parseInt
+    document.getElementById("firstResult").innerHTML = sumAll;
+ }
+
+ 
+   
   
 }
-const handleClickPlus=()=>{
-    console.log("Hi")
-    sumAll +=buttonPlus;
-    document.getElementById("firstResult").innerHTML = sumAll;
-   
-    console.log(buttonClick.value)
-   
- }
 
- const handleClickEqual = ()=>{
-    console.log("Equal")
-    sumAll +=equal+sumCount;
+const process=(array,process)=>{
+   console.log("in process",array)//array =["9","1"]
+sum=0;
+//for(i=0;i<array.length;i++){
+   if(process ==="+"){
+        sum = parseFloat(array[0])+parseFloat(array[1])
+   } else if(process === "-"){
+      sum = parseFloat(array[0])-parseFloat(array[1]);
+   } else if(process === "*"){
+      sum = parseFloat(array[0])*parseFloat(array[1]);
+   } else if(process === "/"){
+      sum = parseFloat(array[0])/parseFloat(array[1]);
+   }  else if(process === "%"){
     
-    document.getElementById("firstResult").innerHTML = sumAll;
-   
-    console.log(buttonClick.value)
-   console.log("sumCount",sumCount)
- }
- 
-
- const sum=()=>{
-  /* //  const sumX = sumCount.split('');
-  //  console.log("sumX",sumX)
-   // let newArray =[]
-  //  for(i=0;i<sumX.length;i++){
-        let number = parseInt(sumX[i]);
-            if(number!=="NaN"){
-                 newArray[i]=number;
-            }
-        
-    }
-     const sum = newArray.reduce((a,b) => a+b);
-     console.log("New Array",newArray)
-     console.log("Sum",sum)
-     return sum;
-*/
- }
+      sum = parseFloat(array[0])%parseFloat(array[1]);
+   } 
+//};
+return sum;
+ };
