@@ -14,20 +14,17 @@
         </div>
         <div class="calculator">
             <div class="result">
-                <div><p>Result Area1</p> </div>
-                <div><p>Result Area2</p> </div>
-                <div id="firstResult" ><p>Result Area3</p> </div>
+                <div id="thirdResult"><p></p> </div>
+                <div id="secondResult"><p></p> </div>
+                <div id="firstResult" ><p></p> </div>
             </div>
             <div class="numberArea">
                     <div class="grid-containerTop">
                         <div class="grid-containerNumber">
-                            <div id="%">
-                                <button id="percent" onclick="handleClick(this)" value="percent">%</button>
-                            </div>
-                            <div id="CC">
-                                <button>CC</button>
+                            <div >
+                                <button id="removeLastItem" onclick="handleClick(this)" value="removeLastItem">CC</button>
                              </div>
-                            <div id="C">
+                            <div >
                                 <button id="clear" onclick="handleClick(this)" value="clear">C</button>
                             </div>
                         </div>
@@ -79,7 +76,7 @@
                                 <button id="plus" onclick="handleClick(this)" value="plus">+</button>
                             </div>
                             <div >
-                                <button id="multiply" onclick="handleClick(this)" value="multiply">*</button>
+                                <button id="multiply" onclick="handleClick(this)" value="multiply">x</button>
                             </div>
                             <div >
                                 <button id="minus" onclick="handleClick(this)" value="minus">-</button>
@@ -93,9 +90,7 @@
                          </div>
             </div> 
         </div>
-    </div>
     <script src="myScript.js">
-
     </script>
 </body>
 </html>
