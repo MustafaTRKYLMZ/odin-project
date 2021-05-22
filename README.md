@@ -11,4 +11,4 @@ I used html, css and javascript(basic level) when I am building these projects.
 ## Etch-a-sketch
 [Live Preview](https://mustafatrkylmz.github.io/odin-project/etch-a-sketch/)
 ## Calculator
-[Live Preview] (https://mustafatrkylmz.github.io/odin-project/calculator/)
+[Live Preview](https://mustafatrkylmz.github.io/odin-project/calculator/)
