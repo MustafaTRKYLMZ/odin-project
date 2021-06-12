@@ -41,47 +41,32 @@ function createStyle(){
 //-------------------get book from localstorage---------------------------
 Book.prototype.getList = function () { 
   let newArray = JSON.parse(localStorage.getItem("library"))
-    createStyle();
+
     let tbodyEl = document.querySelector("tbody")
+  //  tbodyEl.appendChild(att)
         for(i=0;i<newArray.length;i++){
+           
             tbodyEl.innerHTML +=
-                    `<tr>
+                    `<tr ${newArray[i].read==="read"?"class="+"notRead":"class="+"read"}>
                         <td>${i+1}</td>
                         <td>${newArray[i].author}</td>
                         <td>${newArray[i].title}</td>
                         <td>${newArray[i].page}</td>
-                        <td>${newArray[i].read}</td>
-                        <td><button class="removeItem" id="removeItem" >remove</button></td>
+                        <td >${newArray[i].read}
+                        ${newArray[i].read==="read"?
+                        "<button class='readButtons' id="+"readButton"+">Read</button>":
+                        "<button class='readButtons' id="+"notReadButton"+">Not</button>"
+                        }
+                        </td>
+                        <td ><button class="removeItem" id="removeItem" >remove</button></td>
                     </tr>
                     `
+         
         }
 }
-/*
-function removeBook (e) {
-   // let tableEl = document.querySelector("table")
-   // e.preventDefault();
-    if(!e.target.classList.contains("removeItem")){
-        return;
-    }
-    let books = JSON.parse(localStorage.getItem("library"))
-    
-    if(confirm("Are you sure to remove this item")){
-            let btn = e.target
-            
-            let content =  e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
-            console.log("content",content)
-            books.forEach((book, index) => {
-            if(book.title === content) {
-            books.splice(index, 1);
-            }
-        })
-            localStorage.setItem('library', JSON.stringify(books));
-            btn.closest("tr").remove();
-        console.log("Books",books)
-    }
-  
-}
-*/
+
+
+
 
 //-------------------------remove Item in table ------------------------------
 
@@ -109,7 +94,7 @@ document.querySelector('#book-list').addEventListener("click",(e)=> {
             }
         })
         localStorage.setItem('library', JSON.stringify(books));
-        console.log("Books",books)
+       
     }
   
 
@@ -120,8 +105,8 @@ function insertFunction(){
    const author=document.getElementById('author').value;
    const title=document.getElementById('title').value;
    const page = document.getElementById('page').value;
-   const read=false;
-   console.log("Read content",read)
+   const read = document.getElementById('status').value;
+   
 let book = new Book(author,title,page,read)
 
 book.addBookToLibrary(book)
