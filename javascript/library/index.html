@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Library</title>
+  <style>
+    
+    </style>
+</head>
+<body>
+    <div class="head">
+
+     </div> 
+     <div class="newBookAdd">
+        <button id="newBookAdd">+</button>
+        <div id="myDIV">
+          <table>
+              <thead>
+                  <tr>
+                    <th></th>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Page</th>
+                    <th>Read</th>
+                    <th>edit</th>
+                  </tr>
+                </thead>
+              <tbody id="book-list"></tbody>
+            </table>
+            </div>
+      </div>
+    
+    <div class="newBookAdd">
+    
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="addNewBookHeader" >Add New Book</p>
+          <form class="inputArea">
+            <div class="inputCenter">
+                    <div id="inputAuthorArea">
+                      <div class="HeaderArea">
+                        <p>Author:</p>
+                      </div>
+                      <div class="HeaderInputArea">
+                        <input id="author" type="text" placeholder="Author"></input>
+                      </div>
+                    </div>
+                    <div id="inputTitleArea">
+                      <div class="HeaderArea">
+                        <p>Title:</p>
+                      </div>
+                      <div class="HeaderInputArea">
+                        <input id="title" type="text" placeholder="Title"></input>
+                      </div>
+                    </div>
+                    <div id="inputPageArea">
+                      <div class="HeaderArea">
+                        <p>Page:</p>
+                      </div>
+                      <div class="HeaderInputArea">
+                        <input id="page" type="number" placeholder="Page"></input>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="buttonArea">
+                      <button id="insert" onclick="insertFunction()">Insert</button>
+                      <!--<button id="getList"> get List</button> -->
+                  </div>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div id="tryArea" >
+        New Try Area
+      </div>
+  <script src="Model.js">  </script>
+  <script src="Book.js"></script>
+  <script src="BookList.js"></script>
+</body>
+
+</html>

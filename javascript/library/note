@@ -1,0 +1,6 @@
+Edit book list 
+1- you should write author, title, page, readable
+2- fix open model   
+3-you can be change readble property in the each book
+4-you can delete each book 
+5- you should learn firebase database insteance of localstorage
