@@ -1,10 +1,8 @@
 .head{
     display: flex;
     flex-direction: center;
-    background-color: rgb(208, 218, 236);
     height: 200px;
-    border-bottom: solid;
-    background: url('./images/library.jpg');
+   
 }
 .inputArea{
     display: flex;
@@ -79,6 +77,13 @@ input{
 }
 #readButton{
     background-color: rgb(37, 184, 32);
+}
+td input {
+width: 30px;
+}
+td{
+    width: 900px;
+    height: 60px;
 }
 #notReadButton{
     background-color: rgb(223, 69, 30);
@@ -157,7 +162,6 @@ button{
     flex-direction: flex-start;
     justify-items: center;
     align-items: center;
-   
     border:none;
     border-radius: 50px;
 }
@@ -231,7 +235,7 @@ button{
 
   table{
       background-color: rgb(56, 154, 184);
-      width: 1200px;
+      width: 1500px;
       display: inline-table;
       margin: 10px;
       border-radius: 10px;
@@ -253,6 +257,9 @@ button{
       align-items: center;
       justify-content: center;
 
+  }
+  body{
+    background: url('./images/library-body-background.png');
   }
   thead tr{
       height: 50px;
