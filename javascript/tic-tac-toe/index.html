@@ -7,10 +7,107 @@
   
 </head>
 <body>
-    <div>
-        Hello tic-tac-toe
+        <header class="header">
+            <h2>Play Order:</h2>
+            <div>
+                <h1 id="playOrder" >O</h1>
+            </div>
+            <div>
+                <h1 id="playResult" >O</h1>
+            </div>
+        </header>
+        <div class="restart">
+                <button onclick="restartButton()" id="restartButton" >restart</button>
+                <button id="startButton">Start</button>
+        </div>
+        <div class="game-area">
+            <div class="playerOne" id="playerOne">
+                <p>Player1</p>
+            </div>
+         <div class="game-area-play" id="game-area-play">
+                <div class="game-area-row"> <!-- row one-->
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesOne">.</h1>
+                    </div>
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesTwo">.</h1>
+                    </div>
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesThere">.</h1>
+                    </div>
+                </div>
+                <div class="game-area-row"> <!-- row two-->
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesFour">.</h1>
+                    </div>
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesFive">.</h1>
+                    </div>
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesSix">.</h1>
+                    </div>
+                </div>
+
+                <div class="game-area-row"> <!-- row three-->
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesSeven">.</h1>
+                    </div>
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesEight">.</h1>
+                    </div>
+                    <div class="game-area-row-cell"> 
+                        <h1 class="setAttributes" id="setAttributesNine">.</h1>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="playerTwo" id="playerTwo">
+                <p>Player2</p>
+            </div>
+        </div>
+
+        <!-- 
+
+
+            
+      The Modal -->
+    <div class="startGame">
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="startGameHeader" >Add player</p>
+                <form class="inputArea">
+                    <div class="inputCenter">
+                        <div id="inputAuthorArea">
+                            <div class="HeaderArea">
+                                <p>First Player Name:</p>
+                            </div>
+                            <div class="HeaderInputArea">
+                                <input id="firstPlayerName" type="text" placeholder="Player name"></input>
+                            </div>
+                        </div>
+                        <div id="inputAuthorArea">
+                            <div class="HeaderArea">
+                                <p>Second Player Name:</p>
+                            </div>
+                            <div class="HeaderInputArea">
+                                <input id="secondPlayerName" type="text" placeholder="Player name"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonArea">
+                        <button id="insert" onclick="insertFunction()">Start</button>
+                        <!--<button id="getList"> get List</button> -->
+                    </div>
+                </form>
+             </div>
+        </div>
     </div>
-  
+    <!-- model end      -->
+
+  <script src="tic-tac-toe-style.js"></script>
   <script src="tic-tac-toe.js"></script>
+  <script src="model.js">  </script>
 </body>
 </html>

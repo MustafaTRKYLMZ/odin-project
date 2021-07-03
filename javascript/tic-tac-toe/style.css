@@ -1,0 +1,217 @@
+header{
+    background-color: rgb(228, 145, 21);
+}
+body{
+    background-color:rgb(241, 249, 250);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game-area{
+    background-color:rgb(66, 210, 30);
+    border: solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    width: 1200px;
+    height: 900px;
+}
+.game-area-play{
+    border: solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.game-area-row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game-area-row-cell{
+    border: solid red;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    background-color:rgb(236, 241, 235);
+    justify-content:center;
+    align-items: center;
+}
+.game-area-row-cell h1{
+    font-size: 170px;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 0px;
+
+}
+.playerOne, .playerTwo{
+    background-color: cornflowerblue;
+    margin: 20px;
+    display: flex;
+    width: 200px;
+    height: 600px;
+    border-radius: 20px;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.restart{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+#restartButton{
+    background-color: rgb(255, 123, 0);
+    color:blanchedalmond;
+    font-size: 28px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border:none;
+}
+
+
+
+
+#newBookAdd{
+    display: flex;
+    font-size: 40px;
+    background-color: white;
+    color:rgb(17, 33, 250);
+    flex-direction: flex-start;
+    justify-items: center;
+    align-items: center;
+    border:none;
+    border-radius: 50px;
+}
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    border-radius: 20px;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  button{
+    margin: 5px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    color:white;
+    font-size: bold;
+    background-color: blue;
+    border:none;
+}
+.buttonArea{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    
+}
+#insert{
+    color:white
+}
+.startGame{
+        display: flex;
+        flex-direction:column;
+        justify-items: center;
+        align-items: flex-end;
+        width: 1200;
+    
+}
+.HeaderArea {
+    margin: 20px;
+}
+.HeaderInputArea{
+    margin: 20px;
+}
+#startGameHeader{
+    color:"black";
+    font-size: 20px;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+}
+.HeaderArea {
+    margin: 20px;
+}
+.HeaderInputArea{
+    margin: 20px;
+}
+input{
+    margin:10px 0px 10px 50px;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(95, 127, 185);
+    margin: 0px 0px 10px 0px;
+    border-radius: 20px;
+}
+.inputCenter{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+}
+p{
+    color: white;
+    font-size: 28px;
+    margin: 10px;
+}
+.playerOneArea{
+    color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: teal;
+    width: 200px;
+}
