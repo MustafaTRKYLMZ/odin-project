@@ -1,5 +1,6 @@
 // Get the modal
 var modal = document.getElementById("myModal");
+var modalDisplay = document.getElementById("myModalDisplay");
         
 // Get the button that opens the modal
 var btn = document.getElementById("startButton");
@@ -22,6 +23,8 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  } else if(event.target == modalDisplay){
+    modalDisplay.style.display = "none";
   }
 }
 

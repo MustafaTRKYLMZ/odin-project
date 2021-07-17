@@ -1,5 +1,25 @@
 header{
     background-color: rgb(228, 145, 21);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 150px;
+    margin: 10px;
+    padding: 20px;
+}
+h1{
+    margin: 10px;
+}
+#playOrderHeader{
+    display: flex;
+    flex-direction: row;
+}
+#playOrderResult{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 body{
     background-color:rgb(241, 249, 250);
@@ -109,6 +129,36 @@ body{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     border-radius: 20px;
   }
+  .modalDisplay{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    border-radius: 20px;
+  }
+  #winner{
+   
+    font-size: 100px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #winArea{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+  }
   
   /* Modal Content */
   .modal-content {
@@ -125,6 +175,18 @@ body{
     float: right;
     font-size: 32px;
     font-weight: bold;
+  }
+  .closeDisplay {
+    color: #aaaaaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .closeDisplay:hover,
+  .closeDisplay {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
   
   .close:hover,
@@ -212,6 +274,15 @@ p{
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    background-color: teal;
+    width: 200px;
+}
+.playerScore{
+    color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: teal;
     width: 200px;
 }

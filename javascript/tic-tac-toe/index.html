@@ -8,11 +8,11 @@
 </head>
 <body>
         <header class="header">
-            <h2>Play Order:</h2>
-            <div>
-                <h1 id="playOrder" >O</h1>
+            
+            <div id="playOrderHeader">
+               <h1>Play Order:</h1><h1 id="playOrder" >O</h1>
             </div>
-            <div>
+            <div id="playOrderResult">
                 <h1 id="playResult" >O</h1>
             </div>
         </header>
@@ -103,7 +103,29 @@
                 </form>
              </div>
         </div>
+        <!---  reault display                      --->
+        <div id="myModalDisplay" class="modalDisplay">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="closeDisplay">&times;</span>
+                <p id="startGameHeader" >Add player</p>
+                <form class="inputArea">
+                    <div class="inputCenter">
+                        <div id="winArea">
+                            <p id="winner">You Win</p>
+                        </div>
+                        
+                    </div>
+                  <!--    <div class="buttonArea">
+                        <button id="insert" onclick="insertFunction()">Start</button>
+                      <button id="getList"> get List</button> 
+                    </div>-->
+                </form>
+             </div>
+        </div>
     </div>
+     <!--    -->
+        
     <!-- model end      -->
 
   <script src="tic-tac-toe-style.js"></script>
