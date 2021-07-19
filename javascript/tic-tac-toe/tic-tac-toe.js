@@ -276,6 +276,11 @@ function displayResult(reslt) {
     playerOne.appendChild(divSecond)
   return playerFirst
  }
+ function restartPlay() {
+     restartButton()
+     localStorage.removeItem("players")
+     location.reload()
+ }
 
  function setScore(name,score) {
     let playerOne= name
