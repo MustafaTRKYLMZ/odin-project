@@ -9,9 +9,13 @@ function Book(author,title,page,read){
 }
 //---------------------------dd boot to local storage-------------------------------
 Book.prototype.addBookToLibrary= function (book) {
+    console.log("book in addbook to library")
     let books= JSON.parse(localStorage.getItem("library"))
+   
     books.push(book)
+    console.log("books",books)
     localStorage.setItem("library",JSON.stringify(books))
+    
 };
 //---------------------------------create Style -------------------
 function createStyle(){
@@ -19,8 +23,7 @@ function createStyle(){
       let tryArea = document.getElementById("tryArea")
     books.forEach((book) =>{
         if(book.read ===false){
-              
-                 tryArea.classList.add("read")
+            tryArea.classList.add("read")
         }
     }) 
    
@@ -29,9 +32,12 @@ function createStyle(){
 //-------------------get book from localstorage---------------------------
 Book.prototype.getList = function () { 
   let newArray = JSON.parse(localStorage.getItem("library"))
+  console.log("new array",newArray)
     let tbodyEl = document.querySelector("tbody")
+  //  if(newArray !== null){
+    console.log("new array length   ",newArray.length)
         for(i=0;i<newArray.length;i++){
-           
+            console.log("new array in body",newArray)
             tbodyEl.innerHTML +=
                     `<tr ${newArray[i].read==="read"?"class="+"notRead":"class="+"read"}>
                         <td>${i+1}</td>
@@ -45,6 +51,8 @@ Book.prototype.getList = function () {
                     </tr>
                     `
         }
+   // }
+        
 }
 
 //-------------------------remove Item in table ------------------------------
@@ -78,6 +86,7 @@ function insertFunction(){
    const page = document.getElementById('page').value;
    const read = document.getElementById('status').value;
    let book = new Book(author,title,page,read)
+   console.log("book", book)
    book.addBookToLibrary(book)
 }
 

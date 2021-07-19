@@ -1,7 +1,7 @@
 
 
-const book = new Book()
-book.getList()
+//const book = new Book()
+//book.getList()
 //#notReadButton{
     //------------------------update read status-------------
     document.addEventListener("click",(e)=> {
@@ -26,34 +26,10 @@ book.getList()
                 }
         })
     localStorage.setItem('library', JSON.stringify(books));
-    location.reload()
+   // location.reload()
     })
 
 
-    
-/*
- if(content==="Not"){
-                    if(book.title==updateItem){
-                        if(checkboxChecked){
-                             book.read="read"
-                             checkboxChecked= false;
-                        }
-                        
-                    }
-                           
-                }else if(content==="Read"){
-                    if(book.title==updateItem){
-                        if(!checkboxChecked){
-                             book.read="not read"
-                        contextChexbox.checked= false;
-                        }
-                       
-                   }
-                }
-
-*/
-
-  
 
    
 
