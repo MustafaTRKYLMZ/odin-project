@@ -1,6 +1,6 @@
-import { createProjectButton } from "../XIIF";
-import { openInputArea } from "../projects/createProject";
-import { canselEvent } from "../projects/createProject";
+//import { createProjectButton } from "../XIIF";
+//import { openInputArea } from "../projects/createProject";
+//import { canselEvent } from "../projects/createProject";
 import Todo from "./todo";
 import {IFs} from "../IFs"
 import Projects from "../projects/projects";
