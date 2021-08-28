@@ -30,54 +30,38 @@ export default class Todos {
         }
         this.reloadPage(newArray)
     }
-
-    static getTasks(projectsList){
-        console.log("here is the getTaskButton")
-      //  const projectsList = document.getElementById("projects")
-        projectsList.addEventListener("click",(e)=>{
-            console.log("projects", e.target.id)
-            const currentItem = JSON.parse(localStorage.getItem('projects'));
-            const rightSideBar = document.getElementById("rightSide")
-            const taskContentHeader = document.getElementById("taskContentHeaderId")
-            // const centerBody = document.getElementById("centerBody")
+     static clearRightSideBar(){
+        const taskContentHeader = document.getElementById("taskContentHeaderId")
             const rightContent = document.getElementById("rightContent")
             rightContent.remove()
+            
             if(taskContentHeader !==null){
                 taskContentHeader.remove()
             }
-            //   taskContentHeader.innerHTML = ''
-            const rightContentAgain = document.createElement("div")
-            rightContentAgain.classList.add("rightContent")
-            rightContentAgain.setAttribute("id","rightContent")
-            const taskList = document.createElement("div")
-            taskList.classList.add("taskList")
-            //new tasks area
-            const newTasks = document.createElement("div")
-            newTasks.classList.add("newTasksCls")
-            newTasks.setAttribute("id","newTasksId")
-            //old tasks area
-            const oldTasks = document.createElement("div")
-            oldTasks.classList.add("newTaskCls")
-            oldTasks.setAttribute("id","oldTasksId")
-            if(currentItem !== null){
-                //create project header
-                currentItem.projects.forEach((todos) =>{
-                    if(todos.title === e.target.id){
-                            const header = document.createElement("HEADER")
-                            header.innerHTML=todos.title
-                            header.classList.add("taskContentHeaderCls")
-                            header.setAttribute("id","taskContentHeaderId")
-                            rightSideBar.appendChild(header)
-                //   openInputArea(rightContentAgain)
-                    }
-                })
-                currentItem.projects.forEach((todos) =>{
+    }
+    static createRightSideHeader(currentItem,rightSideBar,e){
+        currentItem.projects.forEach((todos) =>{
+            if(todos.title === e.target.id){
+                //create right side bar and get todos
+                const header = document.createElement("HEADER")
+                header.innerHTML=todos.title
+                header.classList.add("taskContentHeaderCls")
+                header.setAttribute("id","taskContentHeaderId")
+                rightSideBar.appendChild(header)//create 
+            }
+        })
+    }
+    static setTasksToRightSide(currentItem,taskList,newTasks,oldTasks,e){
+        if(currentItem !== null){
+        currentItem.projects.forEach((todos) =>{
                     if(todos.title === e.target.id){
                         for (let index = 0; index < todos.todos.length; index++) {
                             const element = todos.todos[index];
+                            //task area
                             const task = document.createElement("div")
                             task.classList.add("tasks")
                             task.setAttribute("id",element.title)
+                            console.log("setTaskToRightSide qqqqqqqqq",element)
                             task.innerHTML +=
                                         `
                                             <div class="taskDetailCls">
@@ -90,105 +74,236 @@ export default class Todos {
                                             <div class="taskDetailCls" id="dueDate"> <p>No Date</p></div>
                                             <div class="taskDetailCls"> <input type="date" ></input></div>
                                         `
-                        if(!element.isOk){
-                            newTasks.appendChild(task)
-                        } else{
-                        oldTasks.appendChild(task)
-                        }
-                        
-                        taskList.appendChild(newTasks)
-                        taskList.appendChild(oldTasks)
+                            //----------------            
+                            if(!element.isOk){
+                               
+                                newTasks.appendChild(task)
+                                 taskList.appendChild(newTasks)
+                            } else{
+                                 oldTasks.appendChild(task)
+                                  taskList.appendChild(oldTasks)
+                                }
                         }
                     }
                 })
-                
-            }
-            const divCreateTask = document.createElement("div")
-            divCreateTask.classList.add("createTaskCls")
-            divCreateTask.appendChild(Todos.createTaskButton("+ Add Task","createTaskButton"))
-            rightContentAgain.appendChild(divCreateTask)// create task button 
+        }
+    }
+    static createTaskButtonArea(rightContentAgain){//taskList  rightSideBar
+        const divCreateTask = document.createElement("div")
+        divCreateTask.classList.add("createTaskCls")
+        divCreateTask.setAttribute("id","createTaskId")
+        divCreateTask.appendChild(Todos.createTaskButton("+ Add Task","createTaskButton"))
+        console.log("divCreateTask",divCreateTask)
+        rightContentAgain.appendChild(divCreateTask)// create task button rightSideBar
+      
+       // rightContentAgain.appendChild(taskList)
+    // rightSideBar.appendChild(rightContentAgain)
+    }
+    static addTaskArea(){
+        const openTaskInput = document.getElementById("createTaskButton")
+        openTaskInput.addEventListener("click",(e)=>{
+            Todos.openInputTaskArea()
+            IFs.canselEvent("newTaskCanselBtn","newTaskInputArea","newTaskCanselBtnCls",openTaskInput)
+            //-----------------------------------------------------
+            console.log("add Task Area")
+            Todos.addNewTask()//currentItem,newTasks,taskList
+        })
+    }
+    static createNewSideBar(currentItem,rightSideBar,e){
+        if(currentItem !== null){
+             Todos.createRightSideHeader(currentItem,rightSideBar,e)
+        }
+        // create Button Area
+            const rightContentAgain = document.createElement("div")
+            rightContentAgain.classList.add("rightContent")
+            rightContentAgain.setAttribute("id","rightContent")
+            rightSideBar.appendChild(rightContentAgain)//rightSideBar,
+            Todos.createTaskButtonArea(rightContentAgain)
+//==============================================================
+            const taskList = document.createElement("div")
+            taskList.classList.add("taskList")
+            taskList.setAttribute("id","tasklistId")
+            //new tasks area
+            const newTasks = document.createElement("div")
+            newTasks.classList.add("newTasksCls")
+            newTasks.setAttribute("id","newTasksId")
+            taskList.appendChild(newTasks)
+            //old tasks area
+            const oldTasks = document.createElement("div")
+            oldTasks.classList.add("newTaskCls")
+            oldTasks.setAttribute("id","oldTasksId")
+            taskList.appendChild(oldTasks)
             rightContentAgain.appendChild(taskList)
-            rightSideBar.appendChild(rightContentAgain) 
-        //add task area
-            const openTaskInput = document.getElementById("createTaskButton")
-            openTaskInput.addEventListener("click",(e)=>{
-                console.log("task button",e)
-               
-                Todos.openInputTaskArea(divCreateTask,"newTaskInputArea","newTaskAddBtn","newTaskCanselBtn","newTaskInputTitle","newTaskInput",
-                "inputBtnGroupsTask","newTaskCanselBtnCls","newTaskAddBtnCls",openTaskInput)
-                IFs.canselEvent("newTaskCanselBtn","newTaskInputArea","newTaskCanselBtnCls",openTaskInput)
-                Todos.addTask(currentItem,newTasks,taskList)
-            })
+           // rightSideBar.appendChild(rightContentAgain)
+    }
+   
+    static getTasks(currentItem,projectsStyle){
+        console.log("here is the getTaskButton")
+      //  const projectsList = document.getElementById("projects")
+      projectsStyle.addEventListener("click",(e)=>{
+            console.log("projects", e.target.id)
+            //--------------------------
+            const rightSideBar = document.getElementById("rightSide")
+            //clear right side bar
+            Todos.clearRightSideBar()
+            console.log("clearRightSide is Ok")
+            //----------------------------------
+            //createNewSideBar
+            Todos.createNewSideBar(currentItem,rightSideBar,e)
+            const rightContentAgain = document.getElementById("rightContent")
+            const taskList =document.getElementById("tasklistId")
+            const newTasks = document.getElementById("newTasksId")
+            const oldTasks = document.getElementById("oldTasksId")
+           // const {rightContentAgain} = Todos.createNewSideBar()
+            console.log("rightSideBar",rightSideBar)
+                //-----------------------------------------------------------------------
+            Todos.setTasksToRightSide(currentItem,taskList,newTasks,oldTasks,e)
+            //----------------------------------------------------------------------------------
+           // Todos.createTaskButtonArea(rightSideBar,rightContentAgain,taskList)
+            //add task area--------------------------------------------------------------------------------
+            Todos.addTaskArea()
+            
     })
 
     }
 //create new Task 
 static createTask(createTaskButon){//
     //  const createProjectButon = document.getElementById("createProjectButton")
-      console.log("here is create Task funtion")
       //input lissener area
       if(createTaskButon !==null){
           createTaskButon.addEventListener("click",(e)=>{
           e.preventDefault()
-          console.log("here is new project",e)
-          const tasks = document.getElementById("createTaskCls")
-          console.log("//////////////",tasks)
-          Todos.openInputTaskArea(tasks,"newProjectInputArea","newProjectAddBtn","newProjectCanselBtn","newProjectInputTitle","newProjectInput",
-          "inputBtnGroupsProject","newProjectCanselBtnCls","newProjectAddBtnCls",createTaskButon)
+          console.log("here is new Task",e)
+          //
+          const tasks = document.getElementById("createTaskId")
+          Todos.openInputTaskArea()
           //cansel event area
-          IFs.canselEvent("newProjectCanselBtn","newProjectInputArea","newProjectCanselBtnCls",createTaskButon)
+          IFs.canselEvent("newTaskCanselBtn","newTaskInputArea","newTaskCanselBtnCls",createTaskButon)
           // add event are
           Projects.addProject(tasks)
       })
       }
-      
+  }
+//
+static addNewTask(){
+    console.log("Hello from add task button")
+    const add = document.getElementById("newTaskAddBtn")
+     
+    add.addEventListener("click",(e)=>{
+        console.log("add New Task =========",e)
+        e.preventDefault()
+        if(!e.target.classList.contains("newTaskAddBtnCls")){
+            return;
+         }
+        
+        const inputProject= document.getElementById("newTaskInputTitle")
+        const taskContentHeaderId  = document.getElementById("taskContentHeaderId").innerText
+      //  const project =new Projects(inputProject.value)
+      //  const project =new Projects()
+        const todo = new Todo(inputProject)
+        todo.setList=inputProject.value 
+      //  project.setList=todos
+        //add projects to PROJEST DIV
+         console.log("new Task ffffffffffffffff",todo,"====",)
+        Todos.setNewTask(todo)
+        // add input project to local storage 
+        Todos.setTasksToLocal(todo,taskContentHeaderId)
+        inputProject.value=""           
+    })
+} 
+static setTasksToLocal(todo,taskContentHeaderId){
+    const currentTtem = JSON.parse(localStorage.getItem('projects'));
+   // const currentTtem =Projects.getList
+     console.log("Fffffffffffff",todo)
+     
+      if(currentTtem !== null){
+        currentTtem.projects.forEach((item) =>{
+             if(item.title ===taskContentHeaderId){
+                 console.log("Todo ////////",item.todos)
+                 item.todos.push(todo)
+             }
+               
+         })
+          localStorage.setItem('projects', JSON.stringify(currentTtem));
+      } else {
+         //const proje = new Projects(todos)
+        // proje.setList=todos
+          localStorage.setItem('projects', JSON.stringify(project));
+      }
   }
 
-    static createTaskButton(text,id){
-        const createProjectButton = document.createElement("BUTTON")
-        createProjectButton.innerHTML=text 
-        createProjectButton.setAttribute("id",`${id}`)
-        Todos.createTask(createProjectButton)
-       console.log("hello from create project button")
-        return createProjectButton
-    }
-    static openInputTaskArea(projects,projectInput,newProjectAddBtn,newProjectCanselBtn,newProjectInputTitle,newProjectInput,
-        inputBtnGroupsProject,newProjectCanselBtnCls,newProjectAddBtnCls,createProjectButon){
-        console.log("sssssss",projects)
+static setNewTask(todos){  
+    //set project to left side 
+  const taskListArea = document.getElementById("newTasksId")
+   //const divProjectsList = document.createElement("div")
+  // divProjectsList.innerHTML= todos.title
+  // divProjectsList.classList.add("projectList")
+   const task = document.createElement("div")
+   task.classList.add("tasks")
+   task.setAttribute("id",todos.title)
+   task.innerHTML +=
+               `
+                   <div class="taskDetailCls">
+                   <input class='isOkButtons'  id="+"isOkButton"  type='radio'${todos.isOk?'checked':"false"}>
+                   </div>
+                   <div class="taskDetailCls"><p>${todos.title}</p></div>
+                   <div class="taskDetailCls"><p>${todos.description}</p></div>
+                   <div class="taskDetailCls"><p>${todos.dueDate}</p></div>
+                   <div class="taskDetailCls"><p>${todos.priority}</p></div>
+                   <div class="taskDetailCls" id="dueDate"> <p>No Date</p></div>
+                   <div class="taskDetailCls"> <input type="date" ></input></div>
+               `
+  // divProjectsList.setAttribute("id",todods.title)
+   taskListArea.appendChild(task)
+ //  this.addProject()
+}
+
+
+static createTaskButton(text,id){
+    const createProjectButton = document.createElement("BUTTON")
+    createProjectButton.innerHTML=text 
+    createProjectButton.setAttribute("id",`${id}`)
+   //Todos.createTask(createProjectButton)
+    //console.log("hello from create task button")
+    return createProjectButton
+}
+    static openInputTaskArea(){
+        console.log("OPEN INPUT TASK AREA")
+        const createTakInputArea = document.getElementById("createTaskId")
+        const createTaskButon = document.getElementById("createTaskButton")
         const div =document.createElement("div")
         div.classList.add("newProjectAdd")
-        div.setAttribute("id",projectInput)
+        div.setAttribute("id","newTaskInputArea")
         //btn groups
         const divBtn =document.createElement("div")
         divBtn.classList.add("inputBtnGroups")
-        divBtn.setAttribute("id",inputBtnGroupsProject)
+        divBtn.setAttribute("id","inputBtnGroupsTasks")
         //input area
         const divInput =document.createElement("div")
         const input =document.createElement("input")
-        input.setAttribute("id",newProjectInputTitle)
-        divInput.setAttribute("id",newProjectInput)
+        input.setAttribute("id","newTaskInputTitle" )
+        divInput.setAttribute("id","newTaskInput")
         divInput.appendChild(input)
         //add button
         const btnAdd =document.createElement("BUTTON")
-        btnAdd.setAttribute("id",newProjectAddBtn)//it must be uniqie
-        btnAdd.classList.add(newProjectAddBtnCls)
+        btnAdd.setAttribute("id","newTaskAddBtn")//it must be uniqie
+        btnAdd.classList.add("newTaskAddBtnCls")
         btnAdd.innerHTML="Add"
         //cansel button
         const btnCansel =document.createElement("BUTTON")
-        btnCansel.setAttribute("id",newProjectCanselBtn)
-        btnCansel.classList.add(newProjectCanselBtnCls)
+        btnCansel.setAttribute("id","newTaskCanselBtn")
+        btnCansel.classList.add("newTaskCanselBtnCls")
         btnCansel.innerHTML="Cansel"
         div.appendChild(divInput)
         divBtn.appendChild(btnAdd)
         divBtn.appendChild(btnCansel)
         //append elements
        div.appendChild(divBtn)
-       projects.appendChild(div);
-
-        createProjectButon.style.display="none"
+       createTakInputArea.appendChild(div);
+       createTaskButon.style.display="none"
     }
 
-    static addTask(currentItem,newTasks,taskList){
+    static setTasks(currentItem,newTasks,taskList){
         console.log("ad Task current item", currentItem)
         const todoTitle = document.getElementById("taskContentHeaderId")
         const add = document.getElementById("newTaskAddBtn")
@@ -211,6 +326,7 @@ static createTask(createTaskButon){//
             const task = document.createElement("div")
             task.classList.add("tasks")
             task.setAttribute("id",todo.title)
+            console.log("element is ok",element.isOk)
             task.innerHTML +=
                 `
                     <div class="taskDetailCls">
@@ -224,9 +340,7 @@ static createTask(createTaskButon){//
                         <div class="taskDetailCls"> <input type="date" ></input></div>
                     `
             newTasks.appendChild(task)
-        //  if(taskList !==null){
-                taskList.appendChild(newTasks)
-        //   }
+            taskList.appendChild(newTasks)
             localStorage.setItem('projects', JSON.stringify(currentItem));//add task to local storage
         })
     }

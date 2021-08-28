@@ -19,22 +19,25 @@ export default class Projects {
        // this.reloadPage(projectsItem)
     }
     // set projects to local storage
-    static setProjectsToLocal(todos){
+    static setProjectsToLocal(project){
       const currentTtem = JSON.parse(localStorage.getItem('projects'));
      // const currentTtem =Projects.getList
-       console.log("xxxxxx",currentTtem)
+       console.log("xxxxxx",project)
+       
         if(currentTtem !== null){
-                currentTtem.projects.push(todos)
-                localStorage.setItem('projects', JSON.stringify(currentTtem));
+            project.projects.forEach((item) =>{
+                 currentTtem.projects.push(item)
+            })
+            localStorage.setItem('projects', JSON.stringify(currentTtem));
         } else {
-           // const proje = new Projects(todos)
-           // proje.setList=todos
-            localStorage.setItem('projects', JSON.stringify(todos));
+           //const proje = new Projects(todos)
+          // proje.setList=todos
+            localStorage.setItem('projects', JSON.stringify(project));
         }
     }
     //create new project 
-    static createProject(createProjectButon){//
-      //  const createProjectButon = document.getElementById("createProjectButton")
+    static createProject(){//
+        const createProjectButon = document.getElementById("createProjectButton")
         console.log("here is create project funtion")
         //input lissener area
         if(createProjectButon !==null){
@@ -65,15 +68,15 @@ export default class Projects {
             const inputProject= document.getElementById("newProjectInputTitle")
           //  const project =new Projects(inputProject.value)
             const project =new Projects()
-            const todos = new Todos(inputProject)
+            const todos = new Todos(inputProject.value)
             todos.setList=inputProject.value 
             project.setList=todos
             //add projects to PROJEST DIV
              console.log("new project",inputProject.value)
             Projects.setProjects(inputProject.value,projects)
-           
+           console.log("new Project",project)
             // add input project to local storage 
-            Projects.setProjectsToLocal(todos)
+            Projects.setProjectsToLocal(project)
             inputProject.value=""           
         })
     }
@@ -90,22 +93,22 @@ export default class Projects {
        return projectsStyle
     }
      setCurrentProjects(projects,projectsStyle){
-         console.log("hello from Projects =====",projects)
-        // const currentItem = JSON.parse(localStorage.getItem('projects'));
+        // console.log("hello from Projects =====",projects)
+        //const currentItem = JSON.parse(localStorage.getItem('projects'));
         const currentItem= projects.getList
          if(currentItem !== null){
              currentItem.projects.forEach((todos) =>{
                  Projects.setProjects(todos.title,projectsStyle)
              }) 
          }
-         Todos.getTasks(projectsStyle)
+         Todos.getTasks(currentItem,projectsStyle)
     }
     // oprn input area
     
      static openInputArea(projects,projectInput,newProjectAddBtn,newProjectCanselBtn,newProjectInputTitle,newProjectInput,
         inputBtnGroupsProject,newProjectCanselBtnCls,newProjectAddBtnCls,createProjectButon){
         /// input Area
-        console.log("sssssss",projects)
+        console.log("OPEN PROJECT INPUT AREA",projects)
         const div =document.createElement("div")
         div.classList.add("newProjectAdd")
         div.setAttribute("id",projectInput)

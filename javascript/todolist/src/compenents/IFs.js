@@ -15,19 +15,58 @@ class IFs {
         return div
     }
     static createLeftSideBar(){
-        const projectsItem = new Projects()
+        
        // const projectslist=projectsItem.getList
         const leftSideDiv = document.createElement("div")
         leftSideDiv.setAttribute("id","leftSide")
         leftSideDiv.classList.add("leftSideBar")
         //content
-        leftSideDiv.appendChild(IFs.timeLine())
+        leftSideDiv.appendChild(IFs.timeLine())//time line style finished
         leftSideDiv.appendChild(IFs.createProjectButton(`+ New Project`,"createProjectButton"))
         
-        leftSideDiv.appendChild(IFs.projects(projectsItem))
+      //  leftSideDiv.appendChild(IFs.projects(projectsItem))
+      leftSideDiv.appendChild(IFs.projects())
        // setCurrentProjects() 
       //createProjectButton
         return leftSideDiv
+    }
+    static projects(){//set current projects sytyle to left side 
+        const projects = document.createElement("div")
+        const p = document.createElement("p")
+        p.setAttribute("id","projectsP")
+        projects.classList.add("projects")
+        projects.setAttribute("id","projects")
+        p.innerHTML="PROJECTS"
+        projects.appendChild(p)
+       
+      //  Projects.setCurrentProjects(projectslist)
+     //  console.log("Projects",projectslist)
+      
+        return projects
+    }
+    static createProjectButton(text,id){
+        const createProjectButton = document.createElement("BUTTON")
+        createProjectButton.innerHTML=text 
+        createProjectButton.setAttribute("id",`${id}`)
+        return createProjectButton
+    }
+
+    static createCenterBody(){
+        const projectsItem = new Projects()
+        console.log("Hello Dear Center")
+        const centerBody = document.createElement("div")
+        const leftBar =  IFs.createLeftSideBar()
+        const rightBar = IFs.createRightSideBar()
+        centerBody.setAttribute("id","centerBody")
+        centerBody.appendChild(leftBar)
+        centerBody.appendChild(rightBar)
+        document.body.appendChild(centerBody)
+        const projects = document.getElementById("projects")
+        Projects.createProject()
+       // IFs.projects(projectsItem) 
+       console.log("Center projects list",projects.getList)
+        projectsItem.setCurrentProjects(projectsItem,projects)
+       // return centerBody
     }
     static createRightSideBar (){
         const rightSideBar = document.createElement("div")
@@ -91,17 +130,7 @@ class IFs {
         })
         
     }
-    static createCenterBody(){
-        console.log("Hello Dear Center")
-        const centerBody = document.createElement("div")
-        const leftBar =  IFs.createLeftSideBar()
-        const rightBar = IFs.createRightSideBar()
-        centerBody.setAttribute("id","centerBody")
-        centerBody.appendChild(leftBar)
-        centerBody.appendChild(rightBar)
-        
-        return centerBody
-    }
+
     
     static timeLine(){
         const timeLine = document.createElement("div")
@@ -132,33 +161,12 @@ class IFs {
         return timeLine
     }
     
-static createProjectButton(text,id){
-    const createProjectButton = document.createElement("BUTTON")
-    createProjectButton.innerHTML=text 
-    createProjectButton.setAttribute("id",`${id}`)
-    Projects.createProject(createProjectButton)
-   console.log("hello from create project button")
-    return createProjectButton
-}
 
-static projects(projectslist){//set current projects sytyle to left side 
-    const projects = document.createElement("div")
-    const p = document.createElement("p")
-    p.setAttribute("id","projectsP")
-    projects.classList.add("projects")
-    projects.setAttribute("id","projects")
-    p.innerHTML="PROJECTS"
-    projects.appendChild(p)
-    projectslist.setCurrentProjects(projectslist,projects)
-  //  Projects.setCurrentProjects(projectslist)
-   console.log("Projects",projectslist)
-  
-    return projects
-}
+
 
    static loadPage(){
         document.body.appendChild(IFs.createHeader())
-        document.body.appendChild(IFs.createCenterBody())
+       IFs.createCenterBody()
         console.log("=================",IFs)
     }
 }
