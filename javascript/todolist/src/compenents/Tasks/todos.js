@@ -1,9 +1,9 @@
-//import { createProjectButton } from "../XIIF";
-//import { openInputArea } from "../projects/createProject";
-//import { canselEvent } from "../projects/createProject";
+
 import Todo from "./todo";
 import {IFs} from "../IFs"
 import Projects from "../projects/projects";
+import Actions from "../Actions";
+//import jsxVanillaLoader from 'https://cdn.skypack.dev/jsx-vanilla-loader';
 
 export default class Todos {
     todos=[];
@@ -11,16 +11,8 @@ export default class Todos {
      constructor(title){
         this.title=title
      }
-     set setList(title){
-        //let books= JSON.parse(localStorage.getItem("library"))
-       // if(books === null){
-       //     books =[]
-            
-      //  }
+    set setList(title){
       this.title=title
-      //  this.reloadSinglePage(books,book,books.length)
-     //   var modal = document.getElementById("myModal");
-     //   modal.style.display = "none";
     }
     get getList() { 
         let newArray = JSON.parse(localStorage.getItem("library"))
@@ -30,18 +22,17 @@ export default class Todos {
         }
         this.reloadPage(newArray)
     }
-     static clearRightSideBar(){
+    static clearRightSideBar(){
         const taskContentHeader = document.getElementById("taskContentHeaderId")
-            const rightContent = document.getElementById("rightContent")
-            rightContent.remove()
-            
-            if(taskContentHeader !==null){
-                taskContentHeader.remove()
-            }
+        const rightContent = document.getElementById("rightContent")
+        rightContent.remove()
+        if(taskContentHeader !==null){
+             taskContentHeader.remove()
+        }
     }
     static createRightSideHeader(currentItem,rightSideBar,e){
         currentItem.projects.forEach((todos) =>{
-            if(todos.title === e.target.id){
+            if(todos.title === e.target.innerText){
                 //create right side bar and get todos
                 const header = document.createElement("HEADER")
                 header.innerHTML=todos.title
@@ -53,39 +44,49 @@ export default class Todos {
     }
     static setTasksToRightSide(currentItem,taskList,newTasks,oldTasks,e){
         if(currentItem !== null){
-        currentItem.projects.forEach((todos) =>{
-                    if(todos.title === e.target.id){
-                        for (let index = 0; index < todos.todos.length; index++) {
-                            const element = todos.todos[index];
-                            //task area
-                            const task = document.createElement("div")
-                            task.classList.add("tasks")
-                            task.setAttribute("id",element.title)
-                            console.log("setTaskToRightSide qqqqqqqqq",element)
-                            task.innerHTML +=
-                                        `
-                                            <div class="taskDetailCls">
-                                            <input class='isOkButtons'  id="+"isOkButton"  type='radio'${element.isOk?'checked':"false"}>
-                                            </div>
-                                            <div class="taskDetailCls"><p>${element.title}</p></div>
-                                            <div class="taskDetailCls"><p>${element.description}</p></div>
-                                            <div class="taskDetailCls"><p>${element.dueDate}</p></div>
-                                            <div class="taskDetailCls"><p>${element.priority}</p></div>
-                                            <div class="taskDetailCls" id="dueDate"> <p>No Date</p></div>
-                                            <div class="taskDetailCls"> <input type="date" ></input></div>
-                                        `
-                            //----------------            
-                            if(!element.isOk){
-                               
-                                newTasks.appendChild(task)
-                                 taskList.appendChild(newTasks)
-                            } else{
-                                 oldTasks.appendChild(task)
-                                  taskList.appendChild(oldTasks)
+            currentItem.projects.forEach((todos) =>{
+               
+                        if(todos.title === e.target.innerText){
+                              console.log("/////",todos.todos)
+                           for (let index = 0; index < todos.todos.length; index++) {
+                                const element = todos.todos[index];
+                                const task = document.createElement("div")
+                                task.classList.add("tasks")
+                                task.setAttribute("id",todos.title)
+                                console.log("setTaskToRightSide qqqqqqqqq",element)
+                                task.innerHTML +=
+                                                `
+                                                    <div class="taskDetailCls">
+                                                    <input class='isOkButtons'  id="+"isOkButton"  type='radio'${element.isOk?'checked':"false"}>
+                                                    </div>
+                                                    <div class="taskDetailCls"><p>${element.title}</p></div>
+                                                    <div class="taskDetailCls"><p>${element.description}</p></div>`
+                                                    if(element.dueDate ===null||element.dueDate ===""){
+                                                        task.innerHTML +=
+                                                        `
+                                                        <div class="taskDetailDateCls" id="noDateId${element.title}"><p>No Date</p></div>
+                                                        `
+                                                    } else {
+                                                          task.innerHTML +=
+                                                        `
+                                                        <div class="taskDetailDateCls" id="dueDate${element.title}"><p>${element.dueDate}</p></div>
+                                                        `
+                                                    }
+                                task.innerHTML +=
+                                                    `
+                                                    <div class="taskCloseBtnCls"> <button  id="taskCloseBtnId">X</button></div>
+                                                    `
+                                    //----------------            
+                                if(!element.isOk){
+                                        newTasks.appendChild(task)
+                                        taskList.appendChild(newTasks)
+                                } else{
+                                        oldTasks.appendChild(task)
+                                        taskList.appendChild(oldTasks)
                                 }
+                           }
                         }
-                    }
-                })
+            })
         }
     }
     static createTaskButtonArea(rightContentAgain){//taskList  rightSideBar
@@ -93,15 +94,12 @@ export default class Todos {
         divCreateTask.classList.add("createTaskCls")
         divCreateTask.setAttribute("id","createTaskId")
         divCreateTask.appendChild(Todos.createTaskButton("+ Add Task","createTaskButton"))
-        console.log("divCreateTask",divCreateTask)
         rightContentAgain.appendChild(divCreateTask)// create task button rightSideBar
-      
-       // rightContentAgain.appendChild(taskList)
-    // rightSideBar.appendChild(rightContentAgain)
     }
     static addTaskArea(){
         const openTaskInput = document.getElementById("createTaskButton")
         openTaskInput.addEventListener("click",(e)=>{
+            e.preventDefault()
             Todos.openInputTaskArea()
             IFs.canselEvent("newTaskCanselBtn","newTaskInputArea","newTaskCanselBtnCls",openTaskInput)
             //-----------------------------------------------------
@@ -114,60 +112,60 @@ export default class Todos {
              Todos.createRightSideHeader(currentItem,rightSideBar,e)
         }
         // create Button Area
-            const rightContentAgain = document.createElement("div")
-            rightContentAgain.classList.add("rightContent")
-            rightContentAgain.setAttribute("id","rightContent")
-            rightSideBar.appendChild(rightContentAgain)//rightSideBar,
-            Todos.createTaskButtonArea(rightContentAgain)
+         const rightContentAgain = document.createElement("div")
+         rightContentAgain.classList.add("rightContent")
+         rightContentAgain.setAttribute("id","rightContent")
+         rightSideBar.appendChild(rightContentAgain)//rightSideBar,
+         Todos.createTaskButtonArea(rightContentAgain)
 //==============================================================
-            const taskList = document.createElement("div")
-            taskList.classList.add("taskList")
-            taskList.setAttribute("id","tasklistId")
-            //new tasks area
-            const newTasks = document.createElement("div")
-            newTasks.classList.add("newTasksCls")
-            newTasks.setAttribute("id","newTasksId")
-            taskList.appendChild(newTasks)
-            //old tasks area
-            const oldTasks = document.createElement("div")
-            oldTasks.classList.add("newTaskCls")
-            oldTasks.setAttribute("id","oldTasksId")
-            taskList.appendChild(oldTasks)
-            rightContentAgain.appendChild(taskList)
-           // rightSideBar.appendChild(rightContentAgain)
+        const taskList = document.createElement("div")
+        taskList.classList.add("taskList")
+        taskList.setAttribute("id","tasklistId")
+        //new tasks area
+        const newTasks = document.createElement("div")
+        newTasks.classList.add("newTasksCls")
+        newTasks.setAttribute("id","newTasksId")
+        taskList.appendChild(newTasks)
+        //old tasks area
+        const oldTasks = document.createElement("div")
+        oldTasks.classList.add("newTaskCls")
+        oldTasks.setAttribute("id","oldTasksId")
+        taskList.appendChild(oldTasks)
+        rightContentAgain.appendChild(taskList)
+        // rightSideBar.appendChild(rightContentAgain)
     }
-   
-    static getTasks(currentItem,projectsStyle){
-        console.log("here is the getTaskButton")
+    static getTasks(projectsStyle){
       //  const projectsList = document.getElementById("projects")
-      projectsStyle.addEventListener("click",(e)=>{
-            console.log("projects", e.target.id)
+         projectsStyle.addEventListener("click",(e)=>{
             //--------------------------
-            const rightSideBar = document.getElementById("rightSide")
+            e.preventDefault()
+            const currentTtems = JSON.parse(localStorage.getItem('projects'));
+            const rightSideBar =document.getElementById("rightSide")
             //clear right side bar
             Todos.clearRightSideBar()
             console.log("clearRightSide is Ok")
             //----------------------------------
             //createNewSideBar
-            Todos.createNewSideBar(currentItem,rightSideBar,e)
-            const rightContentAgain = document.getElementById("rightContent")
+            Todos.createNewSideBar(currentTtems,rightSideBar,e)
+            //const rightContentAgain = document.getElementById("rightContent")
             const taskList =document.getElementById("tasklistId")
             const newTasks = document.getElementById("newTasksId")
             const oldTasks = document.getElementById("oldTasksId")
            // const {rightContentAgain} = Todos.createNewSideBar()
-            console.log("rightSideBar",rightSideBar)
+            console.log("rightSideBar",rightSideBar,e)
                 //-----------------------------------------------------------------------
-            Todos.setTasksToRightSide(currentItem,taskList,newTasks,oldTasks,e)
-            //----------------------------------------------------------------------------------
-           // Todos.createTaskButtonArea(rightSideBar,rightContentAgain,taskList)
+            Todos.setTasksToRightSide(currentTtems,taskList,newTasks,oldTasks,e)
+           
             //add task area--------------------------------------------------------------------------------
             Todos.addTaskArea()
             
-    })
-
+          //  Todo.updateTasks()
+         // Todo.deleteTask()
+            Actions.getActions()
+        })
     }
-//create new Task 
-static createTask(createTaskButon){//
+    //create new Task 
+    static createTask(createTaskButon){//
     //  const createProjectButon = document.getElementById("createProjectButton")
       //input lissener area
       if(createTaskButon !==null){
@@ -181,92 +179,82 @@ static createTask(createTaskButon){//
           IFs.canselEvent("newTaskCanselBtn","newTaskInputArea","newTaskCanselBtnCls",createTaskButon)
           // add event are
           Projects.addProject(tasks)
-      })
-      }
-  }
-//
-static addNewTask(){
-    console.log("Hello from add task button")
-    const add = document.getElementById("newTaskAddBtn")
-     
-    add.addEventListener("click",(e)=>{
-        console.log("add New Task =========",e)
-        e.preventDefault()
-        if(!e.target.classList.contains("newTaskAddBtnCls")){
-            return;
-         }
-        
-        const inputProject= document.getElementById("newTaskInputTitle")
-        const taskContentHeaderId  = document.getElementById("taskContentHeaderId").innerText
-      //  const project =new Projects(inputProject.value)
-      //  const project =new Projects()
-        const todo = new Todo(inputProject)
-        todo.setList=inputProject.value 
-      //  project.setList=todos
-        //add projects to PROJEST DIV
-         console.log("new Task ffffffffffffffff",todo,"====",)
-        Todos.setNewTask(todo)
-        // add input project to local storage 
-        Todos.setTasksToLocal(todo,taskContentHeaderId)
-        inputProject.value=""           
-    })
-} 
-static setTasksToLocal(todo,taskContentHeaderId){
-    const currentTtem = JSON.parse(localStorage.getItem('projects'));
-   // const currentTtem =Projects.getList
-     console.log("Fffffffffffff",todo)
-     
-      if(currentTtem !== null){
-        currentTtem.projects.forEach((item) =>{
-             if(item.title ===taskContentHeaderId){
-                 console.log("Todo ////////",item.todos)
-                 item.todos.push(todo)
-             }
-               
          })
-          localStorage.setItem('projects', JSON.stringify(currentTtem));
-      } else {
-         //const proje = new Projects(todos)
-        // proje.setList=todos
-          localStorage.setItem('projects', JSON.stringify(project));
       }
-  }
-
-static setNewTask(todos){  
-    //set project to left side 
-  const taskListArea = document.getElementById("newTasksId")
-   //const divProjectsList = document.createElement("div")
-  // divProjectsList.innerHTML= todos.title
-  // divProjectsList.classList.add("projectList")
-   const task = document.createElement("div")
-   task.classList.add("tasks")
-   task.setAttribute("id",todos.title)
-   task.innerHTML +=
-               `
-                   <div class="taskDetailCls">
-                   <input class='isOkButtons'  id="+"isOkButton"  type='radio'${todos.isOk?'checked':"false"}>
-                   </div>
-                   <div class="taskDetailCls"><p>${todos.title}</p></div>
-                   <div class="taskDetailCls"><p>${todos.description}</p></div>
-                   <div class="taskDetailCls"><p>${todos.dueDate}</p></div>
-                   <div class="taskDetailCls"><p>${todos.priority}</p></div>
-                   <div class="taskDetailCls" id="dueDate"> <p>No Date</p></div>
-                   <div class="taskDetailCls"> <input type="date" ></input></div>
-               `
-  // divProjectsList.setAttribute("id",todods.title)
-   taskListArea.appendChild(task)
- //  this.addProject()
-}
-
-
-static createTaskButton(text,id){
-    const createProjectButton = document.createElement("BUTTON")
-    createProjectButton.innerHTML=text 
-    createProjectButton.setAttribute("id",`${id}`)
-   //Todos.createTask(createProjectButton)
-    //console.log("hello from create task button")
-    return createProjectButton
-}
+    }
+//
+    static addNewTask(){
+        console.log("Hello from add task button")
+        const add = document.getElementById("newTaskAddBtn")
+        add.addEventListener("click",(e)=>{
+            console.log("add New Task =========",e)
+            e.preventDefault()
+            if(!e.target.classList.contains("newTaskAddBtnCls")){
+                return;
+            }
+            const inputProject= document.getElementById("newTaskInputTitle")
+            const taskContentHeaderId  = document.getElementById("taskContentHeaderId").innerText
+            const todo = new Todo(inputProject)
+            todo.setList=inputProject.value 
+            Todos.setNewTask(todo)
+            // add input project to local storage 
+           
+            Todos.setTasksToLocal(todo,taskContentHeaderId)
+            inputProject.value=""           
+        })
+    } 
+    static setTasksToLocal(todo,taskContentHeaderId){
+        const currentTtem = JSON.parse(localStorage.getItem('projects'));
+        if(currentTtem !== null){
+            currentTtem.projects.forEach((item) =>{
+                if(item.title ===taskContentHeaderId){
+                    console.log("Todo ////////",item.todos)
+                    item.todos.push(todo)
+                }
+            })
+            localStorage.setItem('projects', JSON.stringify(currentTtem));
+        } ///else {
+            //const proje = new Projects(todos)
+            // proje.setList=todos
+       //     localStorage.setItem('projects', JSON.stringify(project));
+        // }
+    }
+    static setNewTask(todos){  
+        //set tasks to right  side 
+    const taskListArea = document.getElementById("newTasksId")
+    const task = document.createElement("div")
+    task.classList.add("tasks")
+    task.setAttribute("id",todos.title)
+    task.innerHTML +=
+                `
+                    <div class="taskDetailCls">
+                    <input class='isOkButtons'  id="+"isOkButton"  type='radio'${todos.isOk?'checked':"false"}>
+                    </div>
+                    <div class="taskDetailCls"><p>${todos.title}</p></div>
+                    <div class="taskDetailCls"><p> ${todos.description}</p></div>`
+                    if(todos.dueDate !==null||todos.dueDate !==""){
+                        task.innerHTML +=
+                        `
+                        <div class="taskDetailDateCls" id="noDateId"><p>No Date</p></div>
+                        `
+                    } else {
+                          task.innerHTML +=
+                        `
+                        <div class="taskDetailCls" id="dueDate">${todos.dueDate} <p>Date:</p></div>
+                        `
+                    }
+        task.innerHTML +=
+                    `
+                    <div class="taskCloseBtnCls"> <button id="taskCloseBtnId">X</button></div>
+                    `
+    taskListArea.appendChild(task)//<div class="taskDetailCls"> <input type="date" ></input></div>  ||todos.dueDate !==""
+    }
+    static createTaskButton(text,id){
+        const createProjectButton = document.createElement("BUTTON")
+        createProjectButton.innerHTML=text 
+        createProjectButton.setAttribute("id",`${id}`)
+        return createProjectButton
+    }
     static openInputTaskArea(){
         console.log("OPEN INPUT TASK AREA")
         const createTakInputArea = document.getElementById("createTaskId")
@@ -298,11 +286,10 @@ static createTaskButton(text,id){
         divBtn.appendChild(btnAdd)
         divBtn.appendChild(btnCansel)
         //append elements
-       div.appendChild(divBtn)
-       createTakInputArea.appendChild(div);
-       createTaskButon.style.display="none"
-    }
-
+        div.appendChild(divBtn)
+        createTakInputArea.appendChild(div);
+        createTaskButon.style.display="none"
+    }/*
     static setTasks(currentItem,newTasks,taskList){
         console.log("ad Task current item", currentItem)
         const todoTitle = document.getElementById("taskContentHeaderId")
@@ -312,6 +299,7 @@ static createTaskButton(text,id){
             if(!e.target.classList.contains("newTaskAddBtnCls")){
                 return;
             }
+            
             const inputTask= document.getElementById("newTaskInputTitle")
             const todo = new Todo()
             todo.setList=inputTask.value 
@@ -319,34 +307,29 @@ static createTaskButton(text,id){
                 if(todos.title === todoTitle.innerText){
                     todos.todos.push(todo)
                     console.log("todos ",todos)
-                }
-                
+                }        
             })
             inputTask.value="" 
             const task = document.createElement("div")
             task.classList.add("tasks")
             task.setAttribute("id",todo.title)
-            console.log("element is ok",element.isOk)
             task.innerHTML +=
-                `
-                    <div class="taskDetailCls">
-                        <input class='isOkButtons'  id="+"isOkButton"  type='radio'${todo.isOk?'checked':"false"}>
-                        </div>
-                        <div class="taskDetailCls"><p>${todo.title}</p></div>
-                        <div class="taskDetailCls"><p>${todo.description}</p></div>
-                        <div class="taskDetailCls"><p>${todo.dueDate}</p></div>
-                        <div class="taskDetailCls"><p>${todo.priority}</p></div>
-                        <div class="taskDetailCls"> <p>No Date</p></div>
-                        <div class="taskDetailCls"> <input type="date" ></input></div>
                     `
+                        <div class="taskDetailCls">
+                            <input class='isOkButtons'  id="+"isOkButton"  type='radio'${todo.isOk?'checked':"false"}>
+                            </div>
+                            <div class="taskDetailCls"><p>${todo.title}</p></div>
+                            <div class="taskDetailCls"><p>${todo.description}</p></div>
+                            <div class="taskDetailCls"><p>${todo.dueDate}</p></div>
+                            <div class="taskDetailCls"><p>${todo.priority}</p></div>
+                            <div class="taskDetailCls"> <p>No Date</p></div>
+                            <div class="taskDetailCls"> <input type="date" ></input></div>
+                        `
             newTasks.appendChild(task)
             taskList.appendChild(newTasks)
             localStorage.setItem('projects', JSON.stringify(currentItem));//add task to local storage
         })
     }
+    */
 } Todos
 
-
-
-
-//export {getTasks}

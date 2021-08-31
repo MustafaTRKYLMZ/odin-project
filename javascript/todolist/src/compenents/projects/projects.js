@@ -1,5 +1,6 @@
 import Todos from "../Tasks/todos";
 import {IFs} from "../IFs"
+import Actions from "../Actions";
 export default class Projects {
     projects=[];
      constructor(){
@@ -21,17 +22,12 @@ export default class Projects {
     // set projects to local storage
     static setProjectsToLocal(project){
       const currentTtem = JSON.parse(localStorage.getItem('projects'));
-     // const currentTtem =Projects.getList
-       console.log("xxxxxx",project)
-       
         if(currentTtem !== null){
             project.projects.forEach((item) =>{
                  currentTtem.projects.push(item)
             })
             localStorage.setItem('projects', JSON.stringify(currentTtem));
         } else {
-           //const proje = new Projects(todos)
-          // proje.setList=todos
             localStorage.setItem('projects', JSON.stringify(project));
         }
     }
@@ -43,9 +39,7 @@ export default class Projects {
         if(createProjectButon !==null){
             createProjectButon.addEventListener("click",(e)=>{
             e.preventDefault()
-            console.log("here is new project",e)
             const projects = document.getElementById("projects")
-            console.log("//////////////",projects)
             IFs.openInputArea(projects,"newProjectInputArea","newProjectAddBtn","newProjectCanselBtn","newProjectInputTitle","newProjectInput",
             "inputBtnGroupsProject","newProjectCanselBtnCls","newProjectAddBtnCls",createProjectButon)
             //cansel event area
@@ -54,11 +48,9 @@ export default class Projects {
             Projects.addProject(projects)
         })
         }
-        
     }
     // 
-      static addProject(projects){//
-         console.log("Hello from add project button")
+    static addProject(projects){//
         const add = document.getElementById("newProjectAddBtn")
         add.addEventListener("click",(e)=>{
             e.preventDefault()
@@ -72,9 +64,7 @@ export default class Projects {
             todos.setList=inputProject.value 
             project.setList=todos
             //add projects to PROJEST DIV
-             console.log("new project",inputProject.value)
             Projects.setProjects(inputProject.value,projects)
-           console.log("new Project",project)
             // add input project to local storage 
             Projects.setProjectsToLocal(project)
             inputProject.value=""           
@@ -82,33 +72,44 @@ export default class Projects {
     }
      static setProjects(title,projectsStyle){  
          //set project to left side 
-       // const projects = document.getElementById("projects")
         const divProjectsList = document.createElement("div")
-        divProjectsList.innerHTML= title
+       // divProjectsList.innerHTML= title
         divProjectsList.classList.add("projectList")
         divProjectsList.setAttribute("id",title)
+       // divProjectsList.draggable=true
+      // divProjectsList.onmouseenter(divProjectsList.style.display==="none")
+
+        const divP = document.createElement("div")
+        const pProjectName = document.createElement("p")
+        pProjectName.innerText=title
+        divP.appendChild(pProjectName)
+        divProjectsList.appendChild(divP)
+
+        const divButton = document.createElement("div")
+        const closeButton = document.createElement("BUTTON")
+        closeButton.classList.add("closeProjectButtonCls")
+        closeButton.setAttribute("id", "closeProjectButtonId")
+        closeButton.innerText="X"
+        divButton.appendChild(closeButton)
+        divProjectsList.appendChild(divButton)
         projectsStyle.appendChild(divProjectsList)
-      //  this.addProject()
-      
-       return projectsStyle
+     //  return projectsStyle
     }
      setCurrentProjects(projects,projectsStyle){
-        // console.log("hello from Projects =====",projects)
-        //const currentItem = JSON.parse(localStorage.getItem('projects'));
         const currentItem= projects.getList
          if(currentItem !== null){
              currentItem.projects.forEach((todos) =>{
                  Projects.setProjects(todos.title,projectsStyle)
              }) 
          }
-         Todos.getTasks(currentItem,projectsStyle)
+         Todos.getTasks(projectsStyle)
+       //  Actions.getActions()
     }
     // oprn input area
-    
+    /*
      static openInputArea(projects,projectInput,newProjectAddBtn,newProjectCanselBtn,newProjectInputTitle,newProjectInput,
         inputBtnGroupsProject,newProjectCanselBtnCls,newProjectAddBtnCls,createProjectButon){
         /// input Area
-        console.log("OPEN PROJECT INPUT AREA",projects)
         const div =document.createElement("div")
         div.classList.add("newProjectAdd")
         div.setAttribute("id",projectInput)
@@ -140,6 +141,7 @@ export default class Projects {
         projects.insertBefore(div,projects.firstChild);
         createProjectButon.style.display="none"
     }
+    */
     //delete project 
     deleteProject(){
 

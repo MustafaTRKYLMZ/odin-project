@@ -1,6 +1,6 @@
 .header{
     background-color: rgb(23, 26, 73);
-    width: 1200px;
+    width: 1270px;
 }
 img{
     border-radius: 20px;
@@ -91,11 +91,15 @@ header .rightSideBar{
 .tasks{
     display: flex;
     flex-direction: row;
-    background-color: rgb(222, 141, 245);
+    background-color: rgb(225, 198, 233);
     color: black;
-    padding: 5px;
-    border-radius: 10px;
+    padding: 0px;
+    border-radius: none;
     margin-bottom: 5px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:solid;
+   
 }
 .tasks:hover{
     background-color: rgb(182, 197, 241);;
@@ -109,7 +113,10 @@ header .rightSideBar{
     margin: 5px;
     border-radius:10px ;
     height: 30px;
-    padding: 10px;
+    padding: 10px 50px 10px 50px;
+}
+.taskDetailDateCls:hover{
+    cursor: pointer;
 }
 
 .tasks p {
@@ -127,6 +134,10 @@ header .rightSideBar{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.newTasksCls{
+  
+   
 }
 #createTaskButton{
     display: flex;
@@ -236,12 +247,67 @@ header .rightSideBar{
  }
  .projectList{
      display: flex;
-     flex-direction: column;
+     flex-direction: row;
+     justify-content:space-between;
+     align-items: center;
      margin: 5px 20px 5px 20px;
      cursor: pointer;
      padding: 10px;
-     height: 20px;
+     width: 220px;
+    height: 20px;
  }
+ .closeProjectButtonCls{
+     margin: 10px 5px 10px 50px;
+     display: flex;
+     font-size: 14px;
+ }
+ .taskDetailDateCls{
+   
+     margin-left: 50px;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     margin: 5px 5px 5px 20px;
+     border-radius:10px ;
+     height: 30px;
+     padding: 10px;
+ }
+ .taskCloseBtnCls{
+    margin: 10px;
+    display: flex;
+    font-size: 18px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+    
+ }
+ 
+ #taskCloseBtnId{
+    margin-right: 0px;
+    background-color: rgb(225, 198, 233);
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    height: 30px;
+}
+ .closeProjectButtonCls:hover{
+    margin-right: 0px;
+    background-color: rgb(241, 11, 11);
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+}
+#taskCloseBtnId:hover{
+    margin-right: 0px;
+    background-color: rgb(241, 11, 11);
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
  .projectList:hover{
     color: rgb(176, 109, 240);
     background-color: rgb(182, 197, 241);

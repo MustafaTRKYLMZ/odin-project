@@ -1,5 +1,6 @@
 //import { createHeader } from "./IIF"
 import Projects from "./projects/projects";
+import Actions from "./Actions"
 //import Todos from "./Tasks/todos";
 class IFs {
    
@@ -15,7 +16,6 @@ class IFs {
         return div
     }
     static createLeftSideBar(){
-        
        // const projectslist=projectsItem.getList
         const leftSideDiv = document.createElement("div")
         leftSideDiv.setAttribute("id","leftSide")
@@ -23,9 +23,8 @@ class IFs {
         //content
         leftSideDiv.appendChild(IFs.timeLine())//time line style finished
         leftSideDiv.appendChild(IFs.createProjectButton(`+ New Project`,"createProjectButton"))
-        
-      //  leftSideDiv.appendChild(IFs.projects(projectsItem))
-      leftSideDiv.appendChild(IFs.projects())
+        //  leftSideDiv.appendChild(IFs.projects(projectsItem))
+        leftSideDiv.appendChild(IFs.projects())
        // setCurrentProjects() 
       //createProjectButton
         return leftSideDiv
@@ -38,10 +37,6 @@ class IFs {
         projects.setAttribute("id","projects")
         p.innerHTML="PROJECTS"
         projects.appendChild(p)
-       
-      //  Projects.setCurrentProjects(projectslist)
-     //  console.log("Projects",projectslist)
-      
         return projects
     }
     static createProjectButton(text,id){
@@ -64,7 +59,6 @@ class IFs {
         const projects = document.getElementById("projects")
         Projects.createProject()
        // IFs.projects(projectsItem) 
-       console.log("Center projects list",projects.getList)
         projectsItem.setCurrentProjects(projectsItem,projects)
        // return centerBody
     }
@@ -80,7 +74,6 @@ class IFs {
       //  Todos.getTasks()
         return rightSideBar
     }
-    
     static openInputArea(projects,projectInput,newProjectAddBtn,newProjectCanselBtn,newProjectInputTitle,newProjectInput,
         inputBtnGroupsProject,newProjectCanselBtnCls,newProjectAddBtnCls,createProjectButon){
         /// input Area
@@ -130,8 +123,6 @@ class IFs {
         })
         
     }
-
-    
     static timeLine(){
         const timeLine = document.createElement("div")
         timeLine.classList.add("timeLine")
@@ -160,14 +151,11 @@ class IFs {
         timeLine.appendChild(today)
         return timeLine
     }
-    
-
-
-
    static loadPage(){
         document.body.appendChild(IFs.createHeader())
-       IFs.createCenterBody()
-        console.log("=================",IFs)
+        IFs.createCenterBody()
+      // 
+         
     }
 }
 export {IFs}
