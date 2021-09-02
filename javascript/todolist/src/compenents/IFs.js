@@ -105,6 +105,7 @@ class IFs {
     rightContent.classList.add('rightContent');
     rightContent.setAttribute('id', 'rightContent');
     rightContent.innerHTML = 'Assignments';
+
     rightSideBar.appendChild(rightContent);
     return rightSideBar;
   }
