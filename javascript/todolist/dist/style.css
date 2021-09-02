@@ -1,324 +1,372 @@
-.header{
-    background-color: rgb(23, 26, 73);
-    width: 1270px;
+.header {
+  background-color: rgb(23, 26, 73);
+  width: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
 }
-img{
-    border-radius: 20px;
+img {
+  border-radius: 20px;
 }
-body{
-    display: flex;
-    background: rgb(176, 109, 240);
-    justify-content: space-around;
-    flex-direction: column;
+body {
+  display: flex;
+  background: rgb(176, 109, 240);
+  justify-content: space-around;
+  flex-direction: column;
 }
-header{
-    border-radius: 10px;
-    margin: 10px 10px 0px 1px;
+header {
+  border-radius: 10px;
+  margin: 10px 10px 0px 1px;
 }
-.leftSideBar{
-    display: flex;
-    background: rgb(241, 239, 229);;
-    flex-direction: column;
-    justify-content: left;
-    align-items: flex-start;
-    width: 330px;
-    margin: 5px 10px 10px 10px;
-    height: 900px;
-    border-radius: 20px;
+.leftSideBar {
+  display: flex;
+  background: rgb(241, 239, 229);
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  width: 330px;
+  margin: 5px 5px 5px 0px;
+  height: 900px;
+  border-radius: 5px;
 }
-button{
-   font-size: bold 20px;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    margin: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transform: scaleX();
-    border: none;
-    color: rgb(55, 0, 252);
-    font-weight: bold;
-
+.rightSideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1580px;
+  background: url('images/rightSideBackgroud.png');
+  background-color: rgb(241, 239, 229);
+  margin: 5px 10px 5px 0px;
+  border-radius: 5px;
+  height: auto;
 }
-button:hover{
-    zoom: 1.1;
-    background-color: rgb(182, 197, 241);
-    width: 225px;
-    height: 30px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+.rightContent {
+  padding: 10px;
+  margin: 20px;
+  color: grey;
+  font-size: 24px;
+  background-color: rgb(176, 109, 240);
+  border-radius: 10px;
+  width: auto;
 }
-#centerBody{
-    display: flex;
-    flex-direction: row;
-    margin: none;
+#dateInput {
+  width: 150px;
 }
-.rightSideBar{
-    display: flex;
-    flex-direction: column;
-    width: 900px;
-    height: 100px;
-    background-color:rgb(241, 239, 229);
-    margin: 5px 10px 10px 10px;
-    border-radius: 20px;
-    height: 900px;
-}
-header .rightSideBar{
-    background-color: black;
-}
-.taskContentHeaderCls{
-    background-color: rgb(201, 141, 216);
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 24px;
-    padding: 10px;
-}
-.taskList{
-    display: flex;
-    flex-direction: column;
-    color: black;
-    
-    border-radius: 10px;
-}
-.tasks{
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(225, 198, 233);
-    color: black;
-    padding: 0px;
-    border-radius: none;
-    margin-bottom: 5px;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom:solid;
-   
-}
-.tasks:hover{
-    background-color: rgb(182, 197, 241);;
+button {
+  font-size: bold 20px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: scaleX();
+  border: none;
+  color: rgb(55, 0, 252);
+  font-weight: bold;
 }
 
-.taskDetailCls{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    border-radius:10px ;
-    height: 30px;
-    padding: 10px 50px 10px 50px;
+#centerBody {
+  display: flex;
+  flex-direction: row;
+  margin: none;
 }
-.taskDetailDateCls:hover{
-    cursor: pointer;
+
+.taskContentHeaderCls {
+  background: rgb(176, 109, 240);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px;
+}
+.taskList {
+  display: flex;
+  flex-direction: column;
+  color: black;
+
+  border-radius: 10px;
+}
+.tasks {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(225, 198, 233);
+  color: black;
+  padding: 0px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid;
+}
+.tasks:hover {
+  background-color: rgb(182, 197, 241);
+}
+
+.taskDetailCls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border-radius: 10px;
+
+  height: 30px;
+  padding: 10px 50px 10px 50px;
+}
+.taskDetailDateCls:hover {
+  cursor: pointer;
 }
 
 .tasks p {
-    display: flex;
-    flex-direction: row;
-    color: rgb(10, 10, 10);
+  display: flex;
+  flex-direction: row;
+  color: rgb(10, 10, 10);
 }
-.createTaskCls{
+.createTaskCls {
   display: flex;
   flex-direction: row;
 }
-#newTaskInputArea{
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.newTasksCls{
-  
-   
-}
-#createTaskButton{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 40px;
-    height: 40px;
-    background-color: rgb(225, 198, 233) ;
-    font-weight: bold;
+#newTaskInputArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#createTaskButton:hover{
-    background-color: rgb(182, 197, 241);;
+#createTaskButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px;
+  height: 40px;
+  background-color: rgb(225, 198, 233);
+  font-weight: bold;
 }
 
-.rightContent{
-    padding: 10px;
-    margin: 20px;
-    color: grey;
-    font-size: 24px;
-    background-color: rgb(225, 198, 233);
-    border-radius: 10px;
-}
-.timeLine{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:flex-start;
-    margin: 20px 10px;
-}
-.nextMonth, .nextSevenDays,.today{
-    display: flex;
-    padding: 10px;
-    cursor: pointer;
-   
-}
-.nextMonth:hover{
-    zoom: 1.1;
-    color: rgb(176, 109, 240);
-    background-color: rgb(182, 197, 241);
-    font-weight: bold;
-    width: 220px;
-    height: 20px;
-    border-radius: 5px;
-}
-.nextSevenDays:hover{
-    zoom: 1.1;
-    color: rgb(176, 109, 240);
-    background-color: rgb(182, 197, 241);
-    font-weight: bold;
-    width: 220px;
-    height: 20px;
-    border-radius: 5px;
-}
-.today:hover{
-    zoom: 1.1;
-    color: rgb(176, 109, 240);
-    background-color: rgb(182, 197, 241);
-    font-weight: bold;
-    width: 220px;
-    height: 20px;
-    border-radius: 5px;
+#createTaskButton:hover {
+  background-color: rgb(182, 197, 241);
 }
 
-.projects{
-    display: flex;
-    flex-direction: column;
-    margin: 20px 10px 10px 20px;
+#projectTitleId:hover {
+  background-color: rgb(26, 231, 60);
+  cursor: pointer;
 }
-.projects p{
-    font-size: solid 24px;
-    color: royalblue;
-    font-weight: bold;
+.timeLine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px 10px 0px 20px;
+  padding: 10px;
 }
-.newProjectAdd{
-  
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    background-color: rgb(176, 109, 240);
+#createProjectButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px 5px blueviolet;
+  border-radius: 5px;
+  height: 40px;
 }
-#newProjectInput,#newTaskInput{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 250px;
+button:hover {
+  zoom: 1.1;
 }
-.inputBtnGroups{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: auto;
+.nextMonth,
+.nextSevenDays,
+.today {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 20px 5px 20px;
+  cursor: pointer;
+  padding: 10px;
+  width: 220px;
+  height: 20px;
+  font-size: 20px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 5px;
+  color: blueviolet;
+  font-weight: bold;
 }
-#newProjectAddBtn,#newTaskAddBtn{
-    background-color: rgb(22, 233, 22);
-    width: auto;
-    padding: 10px;
- }
-#newProjectCanselBtn,#newTaskCanselBtn{
-    color: black;
-    background-color: rgb(233, 14, 14);
-    width: auto;
-    padding: 10px;
- }
- .projectList{
-     display: flex;
-     flex-direction: row;
-     justify-content:space-between;
-     align-items: center;
-     margin: 5px 20px 5px 20px;
-     cursor: pointer;
-     padding: 10px;
-     width: 220px;
-    height: 20px;
- }
- .closeProjectButtonCls{
-     margin: 10px 5px 10px 50px;
-     display: flex;
-     font-size: 14px;
- }
- .taskDetailDateCls{
-   
-     margin-left: 50px;
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
-     align-items: center;
-     margin: 5px 5px 5px 20px;
-     border-radius:10px ;
-     height: 30px;
-     padding: 10px;
- }
- .taskCloseBtnCls{
-    margin: 10px;
-    display: flex;
-    font-size: 18px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column-reverse;
-    
- }
- 
- #taskCloseBtnId{
-    margin-right: 0px;
-    background-color: rgb(225, 198, 233);
-    width: 30px;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 5px;
-    height: 30px;
+.nextMonth:hover {
+  zoom: 1.1;
+  color: rgb(176, 109, 240);
+  background-color: rgb(182, 197, 241);
+  font-weight: bold;
+  width: auto;
+  height: 20px;
+  border-radius: 5px;
 }
- .closeProjectButtonCls:hover{
-    margin-right: 0px;
-    background-color: rgb(241, 11, 11);
-    width: 30px;
-    justify-content: center;
-    align-items: center;
+.nextSevenDays:hover {
+  zoom: 1.1;
+  color: rgb(176, 109, 240);
+  background-color: rgb(182, 197, 241);
+  font-weight: bold;
+  width: 220px;
+  height: 20px;
+  border-radius: 5px;
 }
-#taskCloseBtnId:hover{
-    margin-right: 0px;
-    background-color: rgb(241, 11, 11);
-    width: 30px;
-    justify-content: center;
-    align-items: center;
+.today:hover {
+  zoom: 1.1;
+  color: rgb(176, 109, 240);
+  background-color: rgb(182, 197, 241);
+  font-weight: bold;
+  width: 220px;
+  height: 20px;
+  border-radius: 5px;
 }
 
- .projectList:hover{
-    color: rgb(176, 109, 240);
-    background-color: rgb(182, 197, 241);
-    font-weight: bold;
-    width: 220px;
-    border-radius: 5px;
-   
+.projects {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px 10px 20px;
 }
-input{
-   padding: 5px;
-    border-radius: 5px;
-    width: auto;
-    height: 20px;
+.projects p {
+  font-size: solid 24px;
+  color: blueviolet;
+  font-weight: bold;
+  width: auto;
+}
+.newProjectAdd {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgb(176, 109, 240);
+}
+#newProjectInput,
+#newTaskInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 250px;
+}
+.inputBtnGroups {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+#newProjectAddBtn,
+#newTaskAddBtn {
+  background-color: rgb(22, 233, 22);
+  width: auto;
+  padding: 10px;
+}
+#newProjectCanselBtn,
+#newTaskCanselBtn {
+  color: black;
+  background-color: rgb(233, 14, 14);
+  width: auto;
+  padding: 10px;
+}
+.projectList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 20px 5px 20px;
+
+  padding: 10px;
+  width: 220px;
+  height: 20px;
+  font-size: 20px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 5px;
+}
+#projectsP {
+  box-shadow: 5px 10px #888888;
+  font-size: 24px;
+  width: 260px;
+}
+.closeProjectButtonCls {
+  margin: 10px 5px 10px 50px;
+  display: flex;
+  font-size: 14px;
+}
+.taskDetailDateCls {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 5px 5px 20px;
+  border-radius: 10px;
+  height: 30px;
+  padding: 10px;
+}
+.taskCloseBtnCls {
+  margin: 10px;
+  display: flex;
+  font-size: 18px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#taskCloseBtnId {
+  margin-right: 0px;
+  background-color: rgb(225, 198, 233);
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  height: 30px;
+}
+.closeProjectButtonCls:hover {
+  margin-right: 0px;
+  background-color: rgb(241, 11, 11);
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+}
+#taskCloseBtnId:hover {
+  margin-right: 0px;
+  background-color: rgb(241, 11, 11);
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectList:hover {
+  color: rgb(176, 109, 240);
+  background-color: rgb(182, 197, 241);
+  font-weight: bold;
+  width: 220px;
+  border-radius: 5px;
+}
+input {
+  padding: 5px;
+  border-radius: 5px;
+  width: auto;
+  height: 20px;
+}
+.footerCls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 60px;
+  background-color: rgb(176, 109, 240);
+  border-radius: 5px;
+}
+.copyRighCls {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px;
 }
