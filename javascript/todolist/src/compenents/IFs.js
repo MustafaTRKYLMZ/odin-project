@@ -46,7 +46,6 @@ class IFs {
 
   static createCenterBody() {
     const projectsItem = new Projects();
-    console.log('Hello Dear Center');
     const centerBody = document.createElement('div');
     centerBody.setAttribute('id', 'centerBody');
     const leftBar = IFs.createLeftSideBar();
@@ -57,7 +56,6 @@ class IFs {
     Actions.getTimeLineTasks();
     const projects = document.getElementById('projects');
     Projects.createProject();
-
     projectsItem.setCurrentProjects(projectsItem, projects);
   }
   static createRightHeaderTime(rightSideBar, day) {
@@ -77,12 +75,12 @@ class IFs {
     taskList.setAttribute('id', 'tasklistId');
     //new tasks area
     const newTasks = document.createElement('div');
-    newTasks.classList.add('newTasksCls');
+    newTasks.classList.add('currentNewTasksCls');
     newTasks.setAttribute('id', 'newTasksId');
     taskList.appendChild(newTasks);
     //old tasks area
     const oldTasks = document.createElement('div');
-    oldTasks.classList.add('newTaskCls');
+    oldTasks.classList.add('currentOldTasksCls');
     oldTasks.setAttribute('id', 'oldTasksId');
     taskList.appendChild(oldTasks);
     rightContentAgain.appendChild(taskList);
@@ -104,10 +102,24 @@ class IFs {
     const rightContent = document.createElement('div');
     rightContent.classList.add('rightContent');
     rightContent.setAttribute('id', 'rightContent');
-    rightContent.innerHTML = 'Assignments';
-
     rightSideBar.appendChild(rightContent);
     return rightSideBar;
+  }
+  static modelContent() {
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'block';
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName('close')[0];
+    span.onclick = function () {
+      modal.style.display = 'none';
+    };
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
   }
   static openInputArea(
     projects,

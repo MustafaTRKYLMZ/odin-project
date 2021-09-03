@@ -1,5 +1,7 @@
 import { format } from 'date-fns';
 import Actions from '../Actions';
+import { IFs } from '../IFs';
+import Todos from './todos';
 
 export default class Todo {
   title;
@@ -18,14 +20,91 @@ export default class Todo {
   set setList(title) {
     this.title = title;
   }
-  get getList() {
-    let newArray = JSON.parse(localStorage.getItem('library'));
-    if (newArray === null) {
-      newArray = [];
-      return;
-    }
 
-    this.reloadPage(newArray);
+  static changeStatus(projects, e) {
+    const haederIdText = document.getElementById(
+      'taskContentHeaderId'
+    ).innerText;
+    const todoTitle =
+      e.target.parentElement.nextSibling.nextSibling.firstChild.innerText;
+    //  const taskList = document.getElementById('tasklistId');
+    const CurentNewTasks = document.getElementById('newTasksId');
+    const CurentOldTasks = document.getElementById('oldTasksId');
+    const newTasks = document.createElement('div'); // currentItem, taskList,CurentNewTasks, CurentOldTasks,
+    const oldTasks = document.createElement('div');
+    newTasks.classList.add('newTasks');
+    newTasks.setAttribute('id', todoTitle);
+    oldTasks.classList.add('oldTasks');
+    oldTasks.setAttribute('id', todoTitle);
+
+    projects.projects.forEach((item) => {
+      if (item.title === haederIdText) {
+        item.todos.forEach((it) => {
+          if (it.title === todoTitle) {
+            if (it.isOk) {
+              it.isOk = false;
+              // e.target.parentElement.parentElement.remove();
+              e.target.parentElement.parentElement.remove();
+              newTasks.innerHTML += `
+                                                <div class="taskDetailCls">
+                                                <input class='isOkButtons'  id="+"isOkButton"  type='radio'${
+                                                  it.isOk ? 'checked' : 'false'
+                                                }>
+                                                </div>
+                                                <div class="taskDetailCls"><p>${
+                                                  it.title
+                                                }</p></div>
+                                                <div class="taskDetailCls"><p>${
+                                                  it.description
+                                                }</p></div>`;
+              if (it.dueDate === null || it.dueDate === '') {
+                newTasks.innerHTML += `
+                                                    <div class="taskDetailDateCls" id="noDateId${it.title}"><p>No Date</p></div>
+                                                    `;
+              } else {
+                newTasks.innerHTML += `
+                                                    <div class="taskDetailDateCls" id="dueDate${it.title}"><p>${it.dueDate}</p></div>
+                                                    `;
+              }
+              newTasks.innerHTML += `
+                                                <div class="taskCloseBtnCls"> <button  id="taskCloseBtnId">X</button></div>
+                                                `;
+              //----------------
+              CurentNewTasks.appendChild(newTasks);
+              //   taskList.appendChild(CurentNewTasks);
+            } else {
+              it.isOk = true;
+              e.target.parentElement.parentElement.remove();
+              oldTasks.innerHTML += `
+          <div class="taskDetailCls">
+          <input class='isOkButtons'  id="+"isOkButton"  type='radio'${
+            it.isOk ? 'checked' : 'false'
+          }>
+          </div>
+          <div class="taskDetailCls"><p>${it.title}</p></div>
+          <div class="taskDetailCls"><p>${it.description}</p></div>`;
+              if (it.dueDate === null || it.dueDate === '') {
+                oldTasks.innerHTML += `
+              <div class="taskDetailDateCls" id="noDateId${it.title}"><p>No Date</p></div>
+              `;
+              } else {
+                oldTasks.innerHTML += `
+              <div class="taskDetailDateCls" id="dueDate${it.title}"><p>${it.dueDate}</p></div>
+              `;
+              }
+              oldTasks.innerHTML += `
+          <div class="taskCloseBtnCls"> <button  id="taskCloseBtnId">X</button></div>
+          `;
+              CurentOldTasks.appendChild(oldTasks);
+              //  taskList.appendChild(CurentOldTasks);
+            }
+          }
+        });
+      }
+    });
+    //   Actions.changeTaskArea(projects, todoTitle);
+    localStorage.setItem('projects', JSON.stringify(projects));
+    // Actions.getActions();
   }
 
   static deleteTask(e, projects) {
@@ -84,54 +163,33 @@ export default class Todo {
   }
   static setDateInputArea(e) {
     let contentDate = e.target;
-    console.log('first content', contentDate);
     contentDate.innerText = '';
     contentDate.innerHTML = `
                         <input type="date" id="dateInput" />
                         `;
   }
   static setDate(e, projects) {
-    const newTaskId = document.getElementById('rightContent');
-
     const haederIdText = document.getElementById(
       'taskContentHeaderId'
     ).innerText;
     let contentText =
       e.target.parentElement.previousElementSibling.previousElementSibling
         .innerText;
-    /////////////////////////////////////
-    let contentDate = e.target;
-    console.log('first content', contentDate);
-    contentDate.innerText = '';
-    newTaskId.innerHTML += `
-                        <input type="date" id="dateInput" />
-                        `;
-    /* newTaskId.appendChild(`
-    <input type="date" id="dateInput" />
-    `);
-  
-   
-
-    ////////////////////////////
-
-
-    newTaskId.innerHTML += `
-                        <input type="date" id="dateInput" />
-                        `;
-*/
+    Todos.creaModel();
+    IFs.modelContent();
     const dateInpt = document.getElementById('dateInput');
-
-    console.log('hello from date Input', dateInput);
-    // dueDateId.addEventListener('click', (ele) => {
     dateInpt.addEventListener('change', (el) => {
-      // const newTaskId2 = document.getElementById('newTasksId');
       el.preventDefault();
       const dueDateId = document.getElementById(`dueDate${contentText}`);
-      console.log('hello from set Date', el);
+      const noDateId = document.getElementById(`noDateId${contentText}`);
       const date = el.target.value;
       const formatedDate = format(new Date(date), 'dd/MM/yyyy');
-      dueDateId.innerHTML = `<p>${formatedDate}</p>`;
-      dateInput.remove();
+      if (dueDateId !== null) {
+        dueDateId.innerHTML = `<p>${formatedDate}</p>`;
+      }
+      if (noDateId !== null) {
+        noDateId.innerHTML = `<p>${formatedDate}</p>`;
+      }
       Actions.getActions();
       projects.projects.forEach((item) => {
         if (item.title === haederIdText) {
@@ -143,8 +201,9 @@ export default class Todo {
         }
       });
       localStorage.setItem('projects', JSON.stringify(projects));
+      var modal = document.getElementById('myModal');
+      modal.remove();
     });
-    //});
   }
 }
 Todo;
