@@ -1,285 +1,280 @@
-.head{
-    display: flex;
-    flex-direction: center;
-    height: 200px;
-   
+.head {
+  display: flex;
+  flex-direction: center;
+  height: 200px;
 }
-.inputArea{
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(95, 127, 185);
-    margin: 0px 0px 10px 0px;
-    border-radius: 20px;
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(95, 127, 185);
+  margin: 0px 0px 10px 0px;
+  border-radius: 20px;
 }
-.inputCenter{
-    display: flex;
-    flex-direction: column;
-    margin:10px;
+.inputCenter {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
-p{
-    font-size: 20px;
-    width: 10px;
+p {
+  font-size: 20px;
+  width: 10px;
 }
-input{
-    margin:10px 0px 10px 50px;
-    height: 30px;
-    width: 300px;
-    border-radius: 5px;
-    font-size: 20px;
+input {
+  margin: 10px 0px 10px 50px;
+  height: 30px;
+  width: 300px;
+  border-radius: 5px;
+  font-size: 20px;
 }
-#inputAuthorArea  {
-    display: flex;
-    margin-top: 10px;
-    font-size: 30px;
-    
+#inputAuthorArea {
+  display: flex;
+  margin-top: 10px;
+  font-size: 30px;
 }
-#inputTitleArea  {
-    display: flex;
-    margin-top: 10px;
-    font-size: 30px;
-    
+#inputTitleArea {
+  display: flex;
+  margin-top: 10px;
+  font-size: 30px;
 }
-#inputPageArea  {
-    display: flex;
-    margin-top: 10px;
-    font-size: 30px;
-    
+#inputPageArea {
+  display: flex;
+  margin-top: 10px;
+  font-size: 30px;
 }
 
-#inputReadArea  {
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-    height: 40px;
-    width: 420px;
-    padding: 0px;
-    align-items: center;
-    
+#inputReadArea {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  height: 40px;
+  width: 420px;
+  padding: 0px;
+  align-items: center;
 }
-#read{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-    height: 20px;
-    width: 100px;
+#read {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  height: 20px;
+  width: 100px;
 }
-#notRead{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-    height: 20px;
-    width: 100px;
+#notRead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  height: 20px;
+  width: 100px;
 }
-.notRead{
-    background-color: seagreen;
+.notRead {
+  background-color: seagreen;
 }
-#readButton{
-    background-color: rgb(37, 184, 32);
+#readButton {
+  background-color: rgb(37, 184, 32);
 }
 td input {
-width: 30px;
+  width: 30px;
 }
-td{
-    width: 900px;
-    height: 60px;
+td {
+  width: 900px;
+  height: 60px;
 }
-#notReadButton{
-    background-color: rgb(223, 69, 30);
+#notReadButton {
+  background-color: rgb(223, 69, 30);
 }
-.readPX{
-    display: flex;
-    flex-direction: center;
-    font-size:24px;
-    width: 500px;
-    height: 70px;
-    align-items: center;
-
+.readPX {
+  display: flex;
+  flex-direction: center;
+  font-size: 24px;
+  width: 500px;
+  height: 70px;
+  align-items: center;
 }
-select{
-    font-size: 24px;
-    margin-top: 20px;
-    border-radius: 10px;
+select {
+  font-size: 24px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
-option{
-    font-size: 24px;
+option {
+  font-size: 24px;
 }
 .HeaderArea {
-    margin: 20px;
+  margin: 20px;
 }
-.HeaderInputArea{
-    margin: 20px;
+.HeaderInputArea {
+  margin: 20px;
 }
-
 
 .itemListCard {
-    width: 200px;
-    height: 200px;
-    background-color: coral;
-    color: white;
-    font-size: 25px;
-    border-radius: 20px;
-  }
-
-#itemList{
-    background-color: rgb(255, 187, 0);
-    margin:20px;
-}
-.itemListDiv{
-    display: flex;
-    padding:10px;
-    margin:10px;
-    background-color: chocolate;
-    height: 300px;
+  width: 200px;
+  height: 200px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+  border-radius: 20px;
 }
 
-#insert{
-    color:white
+#itemList {
+  background-color: rgb(255, 187, 0);
+  margin: 20px;
 }
-.buttonArea{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    
-}
-button{
-    margin: 5px;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 20px;
-    color:white;
-    font-size: bold;
-    background-color: blue;
-    border:none;
+.itemListDiv {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  background-color: chocolate;
+  height: 300px;
 }
 
-#newBookAdd{
-    display: flex;
-    font-size: 40px;
-    background-color: white;
-    color:rgb(17, 33, 250);
-    flex-direction: flex-start;
-    justify-items: center;
-    align-items: center;
-    border:none;
-    border-radius: 50px;
+#insert {
+  color: white;
 }
-.newBookAdd{
-    display: flex;
-    flex-direction: column;
-    width: 1200;
-    
+.buttonArea {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
 }
-.newBookAddButton{
-    display: flex;
-    flex-direction:column;
-    justify-items: flex-end;
-    align-items: flex-end;
-    width: 1200;
-    margin-right: 450px;
+button {
+  margin: 5px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  font-size: bold;
+  background-color: blue;
+  border: none;
 }
-#myDIV{
-    display: flex;
-    flex-direction:column;
-    justify-items: center;
-    align-items: center;
-    width: 1200;
+
+#newBookAdd {
+  display: flex;
+  font-size: 40px;
+  background-color: white;
+  color: rgb(17, 33, 250);
+  flex-direction: flex-start;
+  justify-items: center;
+  align-items: center;
+  border: none;
+  border-radius: 50px;
 }
-#addNewBookHeader{
-    color:"black";
-    font-size: 20px;
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-    justify-content: center;
-    width: 600px;
+.newBookAdd {
+  display: flex;
+  flex-direction: column;
+  width: 1200;
 }
-#addNewBookHeaderDiv{
-    color:"black";
-    font-size: 20px;
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-    justify-content: center;
-    width: 500px;
+.newBookAddButton {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-end;
+  align-items: flex-end;
+  width: 1200;
+  margin-right: 450px;
+}
+#myDIV {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 1200;
+}
+#addNewBookHeader {
+  color: 'black';
+  font-size: 20px;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+}
+#addNewBookHeaderDiv {
+  color: 'black';
+  font-size: 20px;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    border-radius: 20px;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 32px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  border-radius: 20px;
+}
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+input:focus:invalid {
+  box-shadow: none;
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
 
-  table{
-      background-color: rgb(56, 154, 184);
-      width: 1500px;
-      display: inline-table;
-      margin: 10px;
-      border-radius: 10px;
-      align-items: center;
-      justify-content: center;
-  }
-  thead{
-      background-color: rgb(0, 110, 255);
-      font-size: 18px;
-      border: solid;
-      height: 40px;
-  }
-  #removeItem{
-      color:rgb(41, 35, 35);
-      background-color:red
-  }
-  tbody{
-      background-color: rgb(255, 187, 0);
-      align-items: center;
-      justify-content: center;
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
 
-  }
-  body{
-    background: url('./images/library-body-background.png');
-  }
-  thead tr{
-      height: 50px;
-      font-size: 24px;
-  }
-  tbody tr:hover{
-      background-color: rgb(239, 247, 241);
-  }
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-  .read{
-      background-color: salmon;
-  }
+table {
+  background-color: rgb(56, 154, 184);
+  width: 1500px;
+  display: inline-table;
+  margin: 10px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+}
+thead {
+  background-color: rgb(0, 110, 255);
+  font-size: 18px;
+  border: solid;
+  height: 40px;
+}
+#removeItem {
+  color: rgb(41, 35, 35);
+  background-color: red;
+}
+tbody {
+  background-color: rgb(255, 187, 0);
+  align-items: center;
+  justify-content: center;
+}
+body {
+  background: url('./images/library-body-background.png');
+}
+thead tr {
+  height: 50px;
+  font-size: 24px;
+}
+tbody tr:hover {
+  background-color: rgb(239, 247, 241);
+}
+
+.read {
+  background-color: salmon;
+}

@@ -43,7 +43,7 @@
                         <p>Author:</p>
                       </div>
                       <div class="HeaderInputArea">
-                        <input id="author" type="text" placeholder="Author"></input>
+                        <input id="author" type="text" required pattern="[A-Za-z0-9]+" maxlength="140" placeholder="Author"></input>
                       </div>
                     </div>
                     <div id="inputTitleArea">
@@ -51,7 +51,7 @@
                         <p>Title:</p>
                       </div>
                       <div class="HeaderInputArea">
-                        <input id="title" type="text" placeholder="Title"></input>
+                        <input id="title" type="text" required pattern="[A-Za-z0-9]+" maxlength="140" placeholder="Title"></input>
                       </div>
                     </div>
                     <div id="inputPageArea">
@@ -59,7 +59,7 @@
                         <p>Page:</p>
                       </div>
                       <div class="HeaderInputArea">
-                        <input id="page" type="number" placeholder="Page"></input>
+                        <input id="page" type="number"  required pattern="[0-9]+" placeholder="Page"></input>
                       </div>
                       <div class="readPX">
                         <select name="status" id="status" class="select">
