@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Form Validation Example</title>
+  
+</head>
+<body>
+    
+ 
+    <div class="newBookAdd">
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 syle="align-item:center" id="addNewBookHeader" >Form Validation</h1>
+          <form class="inputArea">
+            <div class="inputCenter">
+                    <div id="countryId">
+                      <div class="country">
+                        <p>Country:</p>
+                      </div>
+                      <div class="country">
+                        <input id="author" type="text" required pattern="[A-Za-z0-9]+" maxlength="140" placeholder="Author"></input>
+                      </div>
+                    </div>
+                    <div id="inputTitleArea">
+                      <div class="email">
+                        <p>email:</p>
+                      </div>
+                      <div class="HeaderInputArea">
+                        <input id="title" type="text" required pattern="[A-Za-z0-9]+@[A-Za-z0-9\w+]+\.[A-Za-z0-9\w+]$" maxlength="140" placeholder="Title"></input>
+                      </div>
+                    </div>
+                    <div id="inputPageArea">
+                      <div class="zipCode">
+                        <p>Zip Code:</p>
+                      </div>
+                      <div class="zipCode">
+                        <input id="page" type="text"  required pattern="[0-9]{4}\s?[A-Za-z]{2}$" placeholder="Page"></input>
+                      </div>
+                     
+                    </div>
+                    <div id="inputPageArea">
+                        <div class="HeaderArea">
+                          <p>password:</p>
+                        </div>
+                        <div class="password">
+                          <input id="page" type="number"  required pattern="[A-Za-z0-9\w+]+" minlength="8" placeholder="password"></input>
+                        </div>
+                       
+                      </div>
+                      <div id="inputPageArea">
+                        <div class="HeaderArea">
+                          <p>password corfirmation</p>
+                        </div>
+                        <div class="passwordCorfirmation">
+                          <input id="page" type="number"  required pattern="[A-Za-z0-9\w+]+" minlength="8" placeholder="confirm password"></input>
+                        </div>
+                       
+                      </div>
+                  </div>
+                  <div class="buttonArea">
+                      <button id="insert" onclick="insertFunction()">Insert</button>
+                      <!--<button id="getList"> get List</button> -->
+                  </div>
+                </form>
+            </div>
+        </div>
+        <!--         ===========================-->
+  </div>
+ 
+</body>
+</html>
